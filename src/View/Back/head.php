@@ -1,4 +1,4 @@
-<?php $adminlte =  '/vendor/almasaeed2010/adminLte';
+<?php $adminlte =  '/vendor/almasaeed2010/adminlte';
 
 $bdd = new \Manager\Connexion();
 $bdd = $bdd->getBdd();

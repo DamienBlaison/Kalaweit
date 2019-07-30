@@ -30,7 +30,7 @@ class Receipt_annual_dashboard
 
         <?php
 
-        require_once( __DIR__ .'/../footer.php');
+        require_once( __DIR__ .'/../Footer.php');
 
         ?>
 

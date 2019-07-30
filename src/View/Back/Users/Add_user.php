@@ -26,6 +26,6 @@ class Add_user
 
             <?php
 
-            require_once( __DIR__ .'/../footer.php');
+            require_once( __DIR__ .'/../Footer.php');
         }
     }

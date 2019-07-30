@@ -26,6 +26,6 @@ class Table_ajax
 
         echo $render;
 
-        require_once( __DIR__ .'/../footer.php');
+        require_once( __DIR__ .'/../Footer.php');
     }
 }

@@ -24,7 +24,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 	<link rel="icon" type="image/png" href="/Public/favicon-96.png">
 	<link rel="stylesheet" href="/vendor/html5up-telephasic/assets/css/main.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel="stylesheet" href="/vendor/almasaeed2010/adminLte/bower_components/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/vendor/almasaeed2010/adminlte/bower_components/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/Css/Front.css">
 	<link rel="stylesheet" href="/Css/Animated.css">
 </head>

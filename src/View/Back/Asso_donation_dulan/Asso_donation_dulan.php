@@ -27,7 +27,7 @@ class Asso_donation_dulan {
 
         echo $asso_donation_dulan;
 
-    require_once( __DIR__ .'/../footer.php');
+    require_once( __DIR__ .'/../Footer.php');
 
     }
 
@@ -49,7 +49,7 @@ class Asso_donation_dulan {
 
         echo $asso_donation_dulan;
 
-    require_once( __DIR__ .'/../footer.php');
+    require_once( __DIR__ .'/../Footer.php');
 
     }
 
@@ -73,7 +73,7 @@ class Asso_donation_dulan {
 
         echo $asso_donation_dulan;
 
-    require_once( __DIR__ .'/../footer.php');
+    require_once( __DIR__ .'/../Footer.php');
 
     echo '
 

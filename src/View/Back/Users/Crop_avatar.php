@@ -46,7 +46,7 @@ class Crop_avatar
 
                     <?php
 
-                    require_once( __DIR__ .'/../footer.php');
+                    require_once( __DIR__ .'/../Footer.php');
 
                     ?>
 

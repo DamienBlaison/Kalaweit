@@ -28,7 +28,7 @@ class Table_filter
 
         echo '<script src="/src/View/Back/Table/Table_filter.js"></script>';
 
-        require_once( __DIR__ .'/../footer.php');
+        require_once( __DIR__ .'/../Footer.php');
 
     }
 }
