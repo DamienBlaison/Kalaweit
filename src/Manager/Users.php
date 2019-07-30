@@ -342,8 +342,6 @@ class Users
 
         }
 
-        var_dump($where);
-
         $reqprep = $this->bdd->prepare("SELECT user_id,user_login,user_first_name, user_last_name, user_email, user_active FROM sso_user WHERE 1=1 $where ORDER BY user_first_name ");
 
         $reqprep->execute($prepare);

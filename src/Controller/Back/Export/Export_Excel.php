@@ -19,8 +19,6 @@ class Export_Excel
 
         $name = htmlspecialchars($_GET["export_name"]);
 
-        var_dump($name);
-
         //$filename = '/www/'.$name.'.xlsx';
 
         /* instanciation de l'objet Spreadsheet */
