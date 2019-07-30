@@ -33,7 +33,7 @@ class Member
 
         echo $render;
 
-        echo '<script src="/src/Kalaweit/View/Member/Member/Member.js"></script>';
+        echo '<script src="/Js/Back/Member.js"></script>';
 
         require_once( __DIR__ .'/../../Footer.php');
 
