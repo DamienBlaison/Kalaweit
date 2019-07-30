@@ -1,10 +1,11 @@
 <?php
 
+if($_SERVER["HTTP_HOST"] == 'localhost:8888'){ $host = 'local';} else { $host = 'online';};
+
 return  $config = [
 
     'host' => [
-        'host' => 'local'
-        //'host' => 'online' 
+        'host' => $host
     ]
 
     ,
