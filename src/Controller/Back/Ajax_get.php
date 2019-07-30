@@ -453,6 +453,8 @@ class Ajax_get
 
             $data = base64_decode($image_array_2[1]);
 
+            var_dump($_GET);
+
             $target_file = __DIR__ .'/../../../www/Img/Avatar/Avatar'.$_GET['user_id'].'_'.date("YmdHms").'.png';
 
             var_dump($target_file);
