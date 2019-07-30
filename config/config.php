@@ -4,7 +4,7 @@ return  $config = [
 
     'host' => [
         //'host' => 'local'
-        'host' => 'online'
+        'host' => 'online' 
     ]
 
     ,

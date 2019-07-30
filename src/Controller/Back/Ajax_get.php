@@ -455,6 +455,8 @@ class Ajax_get
 
             $target_file = __DIR__ .'/../../../www/Img/Avatar/Avatar'.$_GET['user_id'].'_'.date("YmdHms").'.png';
 
+            var_dump($target_file);
+
             $imageName = $target_file;
 
             $name_file = explode('/',$target_file);
