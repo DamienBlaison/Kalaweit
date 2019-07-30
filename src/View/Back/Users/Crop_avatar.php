@@ -50,7 +50,7 @@ class Crop_avatar
 
                     ?>
 
-                    <script src="/../node_modules/Croppie-2.6-2.4/croppie.js"></script>
+                    <script src="/Js/Back/Croppie-2.6-2.4/croppie.js"></script>
 
                     <script>
 
@@ -88,7 +88,7 @@ class Crop_avatar
 
                     console.log(user_id);
 
-                    console.log('http://projet-bd-open-classroom.fr/www/Kalaweit/Ajax_get/upload_avatar'+user_id,);
+                    console.log('/www/Kalaweit/Ajax_get/upload_avatar'+user_id,);
 
 
                     $('#updload_cropped_image').click(function(event){
