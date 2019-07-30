@@ -21,7 +21,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 	<title>Kalaweit.org</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-	<link rel="icon" type="image/png" href="/www/favicon-96.png">
+	<link rel="icon" type="image/png" href="Img/favicon-96.png">
 	<link rel="stylesheet" href="/vendor/html5up-telephasic/assets/css/main.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="/vendor/almasaeed2010/adminlte/bower_components/font-awesome/css/font-awesome.min.css">
