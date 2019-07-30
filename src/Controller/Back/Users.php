@@ -162,7 +162,7 @@ function update(){
 
     $box_download_avatar_content =
     [
-        $avatar_img = (new \Controller\Back\htmlElement\Img('/Public/Img/Avatar/'.$user["user_avatar"],$user["user_first_name"],'avatar_user_admin'))->render(),
+        $avatar_img = (new \Controller\Back\htmlElement\Img('/www/Img/Avatar/'.$user["user_avatar"],$user["user_first_name"],'avatar_user_admin'))->render(),
         $avatar_link = '<a href="/www/Kalaweit/users/crop?user_id='.$_GET['user_id'].'" class="btn btn-primary col-md-12">Modifier l\'Avatar</a>'
     ];
 

@@ -33,7 +33,7 @@ class Users
                     :user_last_name,
                     :user_title,
                     :user_preferred_language,
-                    '/Public/Img/Avatar/Unknown_PersonH.png',
+                    '/www/Img/Avatar/Unknown_PersonH.png',
                     1);
 
             ");
@@ -81,7 +81,7 @@ class Users
 
                 echo '<script> alert("je suis bien ici");</script>';
 
-                $p_dir = '/Public/Img/Avatar/';
+                $p_dir = '/www/Img/Avatar/';
                 $p_file_to_upload = 'avatar';
                 $p_extension = ['png','jpeg','jpg','gif','png'];
                 $p_size = 10000000;

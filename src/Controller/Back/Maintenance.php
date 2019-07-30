@@ -14,7 +14,7 @@ class Maintenance
 
             $file = $_POST['name_receipt'];
 
-            if (file_exists( __DIR__ .'/../../../Public/Receipt/'.$file)){
+            if (file_exists( __DIR__ .'/../../../www/Receipt/'.$file)){
 
                 echo '<script> alert("le fichier existe");</script>';
 

@@ -119,13 +119,13 @@ class Asso_cause_info
 
         if ($url[4]!=='add'){
 
-            $pictures1 = new \Controller\Back\htmlElement\Img('/Public/Img/Asso_cause/'.$picture1["caum_file"],$picture1["caum_file"],"img_cau",$p_style ="");
-            $pictures2 = new \Controller\Back\htmlElement\Img('/Public/Img/Asso_cause/'.$picture2["caum_file"],$picture2["caum_file"],"img_cau",$p_style ="");
+            $pictures1 = new \Controller\Back\htmlElement\Img('/www/Img/Asso_cause/'.$picture1["caum_file"],$picture1["caum_file"],"img_cau",$p_style ="");
+            $pictures2 = new \Controller\Back\htmlElement\Img('/www/Img/Asso_cause/'.$picture2["caum_file"],$picture2["caum_file"],"img_cau",$p_style ="");
 
         } else {
 
-            $pictures1 = new \Controller\Back\htmlElement\Img('/Public/Img/Asso_cause/unknown.png','unknown.png',"img_cau",$p_style ="");
-            $pictures2 = new \Controller\Back\htmlElement\Img('/Public/Img/Asso_cause/unknown.png','unknown.png',"img_cau",$p_style ="");
+            $pictures1 = new \Controller\Back\htmlElement\Img('/www/Img/Asso_cause/unknown.png','unknown.png',"img_cau",$p_style ="");
+            $pictures2 = new \Controller\Back\htmlElement\Img('/www/Img/Asso_cause/unknown.png','unknown.png',"img_cau",$p_style ="");
 
         }
 

@@ -58,7 +58,7 @@ class Ajax_get
 
                 if( $name_receipt != NULL){
 
-                    $body .=    '<a href="/www/Public/Receipt/'.$name_receipt["rec_number"].'.pdf" target="_blank" style="margin-right:5px;" class="btn btn-success" id="print_'.$value[0].'" ><i class="fa fa-print"></i></a>';
+                    $body .=    '<a href="/www/www/Receipt/'.$name_receipt["rec_number"].'.pdf" target="_blank" style="margin-right:5px;" class="btn btn-success" id="print_'.$value[0].'" ><i class="fa fa-print"></i></a>';
 
                 } else {
 
@@ -130,7 +130,7 @@ class Ajax_get
 
                 if( $name_receipt != NULL){
 
-                    $body .=    '<a href="/Public/Receipt/'.$name_receipt["rec_number"].'.pdf" target="_blank" style="margin-right:5px;" class="btn btn-success" id="print_'.$value[0].'" ><i class="fa fa-print"></i></a>';
+                    $body .=    '<a href="/www/Receipt/'.$name_receipt["rec_number"].'.pdf" target="_blank" style="margin-right:5px;" class="btn btn-success" id="print_'.$value[0].'" ><i class="fa fa-print"></i></a>';
 
                 } else {
 
@@ -196,7 +196,7 @@ class Ajax_get
 
                 if( $name_receipt != NULL){
 
-                    $body .=    '<a href="/Public/Receipt/'.$name_receipt["rec_number"].'.pdf" target="_blank" style="margin-right:5px;" class="btn btn-success" id="print_'.$value[0].'" ><i class="fa fa-print"></i></a>';
+                    $body .=    '<a href="/www/Receipt/'.$name_receipt["rec_number"].'.pdf" target="_blank" style="margin-right:5px;" class="btn btn-success" id="print_'.$value[0].'" ><i class="fa fa-print"></i></a>';
 
                 } else {
 
@@ -268,7 +268,7 @@ class Ajax_get
 
                 if( $name_receipt != NULL){
 
-                    $body .=    '<a href="/Public/Receipt/'.$name_receipt["rec_number"].'.pdf" target="_blank" style="margin-right:5px;" class="btn btn-success" id="print_'.$value[0].'" ><i class="fa fa-print"></i></a>';
+                    $body .=    '<a href="/www/Receipt/'.$name_receipt["rec_number"].'.pdf" target="_blank" style="margin-right:5px;" class="btn btn-success" id="print_'.$value[0].'" ><i class="fa fa-print"></i></a>';
 
                 } else {
 
@@ -339,7 +339,7 @@ class Ajax_get
 
                 if( $name_receipt != NULL){
 
-                    $body .=    '<a href="/Public/Receipt/'.$name_receipt["rec_number"].'.pdf" target="_blank" style="margin-right:5px;" class="btn btn-success" id="print_'.$value[0].'" ><i class="fa fa-print"></i></a>';
+                    $body .=    '<a href="/www/Receipt/'.$name_receipt["rec_number"].'.pdf" target="_blank" style="margin-right:5px;" class="btn btn-success" id="print_'.$value[0].'" ><i class="fa fa-print"></i></a>';
 
                 } else {
 
@@ -412,7 +412,7 @@ class Ajax_get
 
                 if( $name_receipt != NULL){
 
-                    $body .=    '<a href="/Public/Receipt/'.$name_receipt["rec_number"].'.pdf" target="_blank" style="margin-right:5px;" class="btn btn-success" id="print_'.$value[0].'" ><i class="fa fa-print"></i></a>';
+                    $body .=    '<a href="/www/Receipt/'.$name_receipt["rec_number"].'.pdf" target="_blank" style="margin-right:5px;" class="btn btn-success" id="print_'.$value[0].'" ><i class="fa fa-print"></i></a>';
 
                 } else {
 

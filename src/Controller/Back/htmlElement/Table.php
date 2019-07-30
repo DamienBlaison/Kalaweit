@@ -98,7 +98,7 @@ class Table
 
                     $body .= '<td style = "width : 47px;">';
 
-                    $body .=    '<a href="/Public/Receipt/'.$value[1].'.pdf" class="btn btn-primary" target="_blank"><i class="fa  fa-print"></i></a>';
+                    $body .=    '<a href="/www/Receipt/'.$value[1].'.pdf" class="btn btn-primary" target="_blank"><i class="fa  fa-print"></i></a>';
 
                     $body .= '</td>';
                 }
@@ -157,7 +157,7 @@ class Table
 
                         if( $name_receipt != NULL){
 
-                            $body .=    '<a href="/Public/Receipt/'.$name_receipt["rec_number"].'.pdf" target="_blank" style="margin-right:5px;" class="btn btn-success" id="print_'.$value[0].'" ><i class="fa fa-print"></i></a>';
+                            $body .=    '<a href="/www/Receipt/'.$name_receipt["rec_number"].'.pdf" target="_blank" style="margin-right:5px;" class="btn btn-success" id="print_'.$value[0].'" ><i class="fa fa-print"></i></a>';
 
                         } else {
 

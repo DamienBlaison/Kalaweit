@@ -451,7 +451,7 @@ class Receipt
                         $reqprep2= $this->bdd->prepare("DELETE FROM asso_receipt WHERE rec_number = :rec_number ");
                         $reqprep2->execute($prepare);
 
-                        unlink( __DIR__ .'/../../../Public/Receipt/'.$receipt_name);
+                        unlink( __DIR__ .'/../../../www/Receipt/'.$receipt_name);
 
                     }
 

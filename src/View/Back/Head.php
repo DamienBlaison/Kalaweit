@@ -21,7 +21,7 @@ $user = (new \Manager\Users($bdd))->get_id_from_Login($_SESSION['user_login']);
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-    <link rel="icon" type="image/png" href="/Public/favicon-96.png">
+    <link rel="icon" type="image/png" href="/www/favicon-96.png">
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="<?php echo $adminlte ?>/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <!-- Font Awesome -->

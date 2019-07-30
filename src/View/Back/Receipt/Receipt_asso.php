@@ -165,13 +165,13 @@ class Receipt_asso
 
             $html2pdf->writeHTML($content);
 
-            $html2pdf->output( __DIR__ . '/../../../../Public/Receipt/'.$this->content["receipt_number"].'.pdf', 'F');
+            $html2pdf->output( __DIR__ . '/../../../../www/Receipt/'.$this->content["receipt_number"].'.pdf', 'F');
 
             $url = explode("/",$_SERVER['REQUEST_URI']);
 
             if ($open !== "close" ){
 
-                $html2pdf->output( __DIR__ . '/../../../../Public/Receipt/'.$this->content["receipt_number"].'.pdf', 'D');
+                $html2pdf->output( __DIR__ . '/../../../../www/Receipt/'.$this->content["receipt_number"].'.pdf', 'D');
 
             };
 

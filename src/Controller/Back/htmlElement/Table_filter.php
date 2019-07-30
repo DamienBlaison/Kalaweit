@@ -241,7 +241,7 @@ class Table_filter
 
                             if($receipt != NULL){
 
-                                $table .=    '<a href="/Public/Receipt/'.$file.'" target="_blank" style="margin-right:5px;" class="btn btn-success" id="print_'.$d_v[0].'" ><i class="fa fa-print"></i></a>';
+                                $table .=    '<a href="/www/Receipt/'.$file.'" target="_blank" style="margin-right:5px;" class="btn btn-success" id="print_'.$d_v[0].'" ><i class="fa fa-print"></i></a>';
 
                             } else {
 
@@ -261,7 +261,7 @@ class Table_filter
 
                                 if($receipt != NULL){
 
-                                    $table .=    '<a href="/Public/Receipt/'.$file.'" target="_blank" style="margin-right:5px;" class="btn btn-success" id="print_'.$d_v[0].'" ><i class="fa fa-print"></i></a>';
+                                    $table .=    '<a href="/www/Receipt/'.$file.'" target="_blank" style="margin-right:5px;" class="btn btn-success" id="print_'.$d_v[0].'" ><i class="fa fa-print"></i></a>';
 
                                 } else {
 

@@ -40,7 +40,7 @@ class Member_receipt_annual
         $p_id = "Receipt_annual";
         $p_update = "";
         $p_delete = "";
-        $p_print = "www/Kalaweit/Public/Receipt/";
+        $p_print = "www/Kalaweit/www/Receipt/";
 
         if($receipt_resume[0]["sum(don_mnt)"] == NULL){
 

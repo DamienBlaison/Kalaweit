@@ -20,7 +20,7 @@ class Dashboard
 
         //$render .= '   <div class="box-tools pull-right">';
         //$render .= '     <a href="/www/home">';
-        //$render .= ' <img src="/../Public/Logo_Kalaweit_Home.jpg">';
+        //$render .= ' <img src="/../www/Logo_Kalaweit_Home.jpg">';
         //$render .= '   </div>';
         //$render .= '    </a>';
         //$render .= ' </div>';
