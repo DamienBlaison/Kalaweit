@@ -30,7 +30,7 @@ class Asso_cause
 
             echo $render;
 
-            echo '<script src="/Js/Asso_cause_donation.js"></script>';
+            echo '<script src="/Js/Back/Asso_cause_donation.js"></script>';
             require_once( __DIR__ .'/../Footer.php');
 
 
