@@ -3,8 +3,8 @@
 return  $config = [
 
     'host' => [
-        //'host' => 'local'
-        'host' => 'online' 
+        'host' => 'local'
+        //'host' => 'online' 
     ]
 
     ,

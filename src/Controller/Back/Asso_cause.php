@@ -12,7 +12,8 @@ class Asso_cause
         $p_render = [
 
         "content_tab1" => $content_tab1 = (new  \Controller\Back\Component\Asso_cause\Asso_cause_info)->render(),
-        "content_tab2" => $content_tab2 = (new  \Controller\Back\Component\Asso_cause\Asso_cause_donation)->render()
+        "content_tab2" => $content_tab2 = (new  \Controller\Back\Component\Asso_cause\Asso_cause_donation)->render(),
+        "content_tab3" => $content_tab3 = (new  \Controller\Back\Component\Asso_cause\Asso_cause_media)->render()
 
 
     ];
@@ -39,8 +40,8 @@ class Asso_cause
         $p_render = [
 
         "content_tab1" => $content_tab1 = (new  \Controller\Back\Component\Asso_cause\Asso_cause_info)->render(),
-        "content_tab2" => ""
-
+        "content_tab2" => "",
+        "content_tab3" => ""
 
     ];
 
