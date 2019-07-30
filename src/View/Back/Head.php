@@ -50,7 +50,7 @@ $user = (new \Manager\Users($bdd))->get_id_from_Login($_SESSION['user_login']);
             <section class="sidebar" style="min-height: 100%; height:100%;">
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="<?php echo '/www/Img/Avatar/'.$user['user_avatar'] ?>" id="return" class="img-circle" alt="User Image" onclick="">
+                        <img src="<?php echo '/Img/Avatar/'.$user['user_avatar'] ?>" id="return" class="img-circle" alt="User Image" onclick="">
                     </div>
 
                     <div class="pull-left info">
