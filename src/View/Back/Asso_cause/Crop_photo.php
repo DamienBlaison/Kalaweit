@@ -6,7 +6,7 @@ class Crop_photo
 
     function render($num_picture){
 
-        require_once( /src/View/Back/Head.php');//flag
+        require_once( '/src/View/Back/Head.php');//flag
 
         ?>
 
