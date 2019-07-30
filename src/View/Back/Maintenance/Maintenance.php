@@ -8,7 +8,7 @@ class Maintenance
 {
     function render($param){
 
-        require_once( __DIR__ .'/../Head.php');
+        require_once( __DIR__ .'/../../Head.php');
 
         $maintenance  = '';
         $maintenance  .= '<section class="content">';

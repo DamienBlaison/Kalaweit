@@ -6,7 +6,7 @@ class User
 
     function render($param){
 
-        require_once( __DIR__ .'/../Head.php');
+        require_once( __DIR__ .'/../../Head.php');
         ?>
 
         <div class="content">
