@@ -465,6 +465,8 @@ class Ajax_get
 
             $prep_file = array_pop($name_file);
 
+            var_dump($prep_file);
+
             $bddM = new \Manager\Connexion();
             $bdd = $bddM->getBdd();
 
