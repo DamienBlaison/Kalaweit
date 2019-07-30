@@ -3,8 +3,8 @@
 return  $config = [
 
     'host' => [
-        'host' => 'local'
-        //'host' => 'online'
+        //'host' => 'local'
+        'host' => 'online'
     ]
 
     ,
@@ -23,13 +23,13 @@ return  $config = [
 
         "online" =>
         [
-            "host" => 'db5000130112.hosting-data.io:3306',
-            "user" => "dbu346301",
-            "pass" => "Passwordbdd57100!",
-            "db"   => 'dbs124813'
+            "host" => 'localhost',
+            "user" => "kalaweit",
+            "pass" => "kalaweit",
+            "db"   => 'kalaweitv2_pp'
         ]
     ],
-    
+
     'type_paiement' =>[
 
         '1' => 'Cheque',

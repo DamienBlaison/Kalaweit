@@ -16,7 +16,7 @@ session_start();
 
 //ini_set('error_reporting', E_ALL | E_STRICT );
 //ini_set('log_errors', 'On');
-//ini_set('display_errors', 'On');
+ini_set('display_errors', 'On');
 //ini_set('error_log',' /kunden/homepages/12/d744344652/htdocs/p5/logs');
 //ini_set('max_execution_time','3600000');
 
@@ -54,6 +54,6 @@ try {
 
 
 } catch (\Exception $ex) {
-    ($ex);
+    var_export($ex);
 
 }
