@@ -24,15 +24,15 @@ class Slider
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
-      <img src="../www/Img/Front/'.$p_slide[0].'.jpg" alt="Los Angeles">
+      <img src="../Img/Front/'.$p_slide[0].'.jpg" alt="Los Angeles">
     </div>
 
     <div class="item">
-      <img src="../www/Img/Front/'.$p_slide[1].'.jpg" alt="Chicago">
+      <img src="../Img/Front/'.$p_slide[1].'.jpg" alt="Chicago">
     </div>
 
     <div class="item">
-      <img src="../www/Img/Front/'.$p_slide[2].'.jpg" alt="New York">
+      <img src="../Img/Front/'.$p_slide[2].'.jpg" alt="New York">
     </div>
   </div>
 
