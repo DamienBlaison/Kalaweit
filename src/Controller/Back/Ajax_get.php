@@ -446,14 +446,14 @@ class Ajax_get
         //{
             $recup = $_POST["image"]; // image encodée en base 64;
 
-        
+
 
             $image_array_1 = explode(";" , $recup);
             $image_array_2 = explode("," , $image_array_1[1]);
 
             $data = base64_decode($image_array_2[1]);
 
-            $target_file = __DIR__ .'/../../../Img/Avatar/Avatar'.$_GET['user_id'].'_'.date("YmdHms").'.png';
+            $target_file = __DIR__ .'/../../../../www/Img/Avatar/Avatar'.$_GET['user_id'].'_'.date("YmdHms").'.png';
 
             $imageName = $target_file;
 
@@ -490,7 +490,7 @@ class Ajax_get
 
     $data = base64_decode($image_array_2[1]);
 
-    $target_file = __DIR__ .'/../../../Img/Asso_cause/p1_'.$_GET['cau_id'].'_'.date("YmdHms").'.png';
+    $target_file = __DIR__ .'/../../../../www/Img/Asso_cause/p1_'.$_GET['cau_id'].'_'.date("YmdHms").'.png';
 
     $imageName = $target_file;
 
@@ -531,7 +531,7 @@ class Ajax_get
 
     $data = base64_decode($image_array_2[1]);
 
-    $target_file = __DIR__ .'/../../../Img/Asso_cause/p2_'.$_GET['cau_id'].'_'.date("YmdHms").'.png';
+    $target_file = __DIR__ .'/../../../../www/Img/Asso_cause/p2_'.$_GET['cau_id'].'_'.date("YmdHms").'.png';
 
     $imageName = $target_file;
 
