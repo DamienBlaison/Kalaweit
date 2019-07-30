@@ -6,9 +6,7 @@ class Dashboard
 
     function render($data){
 
-        var_dump(__DIR__.'/../Head.php');
-
-        require_once(__DIR__.'/../Head.php');//flag
+        require_once(__DIR__.'/../Head.php');
 
         $render  = '';
         $render .= '<div class="container-fluid" style="padding-left:0px;">';
