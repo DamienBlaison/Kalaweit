@@ -53,7 +53,7 @@ class Crop_photo
 
                     ?>
 
-                    <script src="/../node_modules/Croppie-2.6-2.4/croppie.js"></script>
+                    <script src="/vendor/Croppie-2.6-2.4/croppie.js"></script>
 
                     <script>
 
@@ -100,7 +100,7 @@ class Crop_photo
 
                     console.log(num_picture);
 
-                    console.log('http://projet-bd-open-classroom.fr/www/Kalaweit/Ajax_get/upload_photo'+num_picture[1]+cau_id);
+                    console.log('/www/Kalaweit/Ajax_get/upload_photo'+num_picture[1]+cau_id);
 
 
                     $('#updload_cropped_image').click(function(event){
@@ -111,7 +111,7 @@ class Crop_photo
                         }).then(function(response){
 
                             $.ajax({
-                                url: 'http://projet-bd-open-classroom.fr/www/Kalaweit/Ajax_get/upload_photo'+num_picture[1]+cau_id,
+                                url: '/www/Kalaweit/Ajax_get/upload_photo'+num_picture[1]+cau_id,
                                 method:'POST',
                                 data: { "image" :response },
 
