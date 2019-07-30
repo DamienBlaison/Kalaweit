@@ -10,7 +10,7 @@ class Member
 
     function render($p_render){
 
-        require_once( __DIR__ .'/../../Head.php');
+        require_once( /src/View/Back/Head.php');//flag
 
         $render  = '';
         $render .= '<div class="container-fluid" style="padding-left:0px;">';
