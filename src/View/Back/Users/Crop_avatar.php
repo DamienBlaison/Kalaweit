@@ -50,7 +50,7 @@ class Crop_avatar
 
                     ?>
 
-                    <script src="/Js/Back/Croppie-2.6-2.4/croppie.js"></script>
+                    <script src="/vendor/Croppie-2.6-2.4/croppie.js"></script>
 
                     <script>
 
