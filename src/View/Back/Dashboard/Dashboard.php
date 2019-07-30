@@ -6,9 +6,9 @@ class Dashboard
 
     function render($data){
 
-        var_dump('/../src/View/Back/Head.php');
+        var_dump($_SERVER['DOCUMENT_ROOT'].'/../src/View/Back/Head.php');
 
-        require_once('/../src/View/Back/Head.php');//flag
+        require_once($_SERVER['DOCUMENT_ROOT'].'/../src/View/Back/Head.php');//flag
 
         $render  = '';
         $render .= '<div class="container-fluid" style="padding-left:0px;">';
