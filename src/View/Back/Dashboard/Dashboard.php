@@ -6,7 +6,7 @@ class Dashboard
 
     function render($data){
 
-        var_dump(__DIR__);
+        var_dump(__DIR__ .'/../Head.php');
 
         require_once( '/src/View/Back/Head.php');//flag
 
