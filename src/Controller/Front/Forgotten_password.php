@@ -45,7 +45,7 @@
 
                     ";
 
-                    require_once(__DIR__ .'/../../Kalaweit/Manager/Send_mail.php');
+                    require_once(__DIR__ .'/../../../Manager/Send_mail.php');
 
                     send_mail($p_to,$p_subject,$p_body);
 
