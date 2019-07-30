@@ -8,7 +8,7 @@ class Dashboard
 
         var_dump('/../src/View/Back/Head.php');
 
-        require_once( __DIR__ .'/../Head.php');//flag
+        require_once('/../src/View/Back/Head.php');//flag
 
         $render  = '';
         $render .= '<div class="container-fluid" style="padding-left:0px;">';
