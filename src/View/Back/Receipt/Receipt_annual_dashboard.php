@@ -4,7 +4,7 @@ class Receipt_annual_dashboard
 {
     function render($content){
 
-        require_once( '/src/View/Back/Head.php');//flag
+        require_once(__DIR__.'/../Head.php');//flag
 
         ?>
 

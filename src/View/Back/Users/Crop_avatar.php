@@ -6,7 +6,7 @@ class Crop_avatar
 
     function render(){
 
-        require_once( '/src/View/Back/Head.php');//flag
+        require_once(__DIR__.'/../Head.php');//flag
 
         ?>
 

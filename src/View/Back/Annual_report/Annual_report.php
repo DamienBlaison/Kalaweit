@@ -6,7 +6,7 @@ class Annual_report
 
     function render($data){
 
-        require_once( '/src/View/Back/Head.php');//flag
+        require_once(__DIR__.'/../Head.php');//flag
 
         $render  = '<div class="content" style="padding-left:0px;">';
         $render .=         '<div class="content">';

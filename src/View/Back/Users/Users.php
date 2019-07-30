@@ -25,7 +25,7 @@ class Users
 
         $table_user2 = (new \Controller\Back\htmlElement\Table_filter())->render($fields,$data);
 
-        require_once( '/src/View/Back/Head.php');//flag
+        require_once(__DIR__.'/../Head.php');//flag
 
         ?>
         <div class="container-fluid">

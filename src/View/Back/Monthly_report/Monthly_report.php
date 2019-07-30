@@ -20,7 +20,7 @@ class Monthly_report
 
         $array_month = ['01','02','03','04','05','06','07','08','09','10','11','12'];
 
-        require_once( '/src/View/Back/Head.php');//flag
+        require_once(__DIR__.'/../Head.php');//flag
 
         $render  = '<div class="content" style="padding-left:0px;margin-top:0px;">';
         $render  .= '<div class="content">';
