@@ -13,16 +13,17 @@ class Maintenance
         if(isset($_POST["delete_receipt"]) && $_POST['name_receipt'] != ''){
 
             $file = $_POST['name_receipt'];
+            $folder = explode('_',$file);
 
-            if (file_exists( __DIR__ .'/../../../www/Receipt/'.$file)){
+            if (file_exists( __DIR__ .'/../../../Ged/Receipt/R_'.$folder[1].'/'.$file)){
 
-                echo '<script> alert("le fichier existe");</script>';
+                echo '<script> alert("Le fichier a bien été supprimé");</script>';
 
                 (new \Manager\Receipt($bdd))->delete($file);
 
             } else {
 
-                echo '<script> alert("le fichier n\'existe pas");</script>';
+                echo '<script> alert("Le fichier n\'existe pas");</script>';
             }
 
         };

@@ -88,6 +88,11 @@ class App_connexion
 
     function forgotten_pwd(){
 
+        include( __DIR__ .'/../../../config/config.php');
+
+        $server = $config["host"]["host"];
+        $host = $config["Connexion"][$server]["site"];
+
         if(isset($_POST['login'])){
 
             $bdd = (new \Manager\Connexion())->getBdd();
@@ -102,6 +107,8 @@ class App_connexion
 
                 (new \Manager\Sso_token($_POST["login"],$token,$bdd))->add();
 
+
+
                 $p_body = "
                 <p>
                 Bonjour,
@@ -112,7 +119,7 @@ class App_connexion
                 </p>
                 Merci de cliquer sur le lien ci dessous :
                 </p>
-                <p><a href='/www/Kalaweit/app_connexion/maj_pwd?token=$token'>/www//Kalaweit/app_connexion/maj_pwd?token=$token</a>
+                <p><a href='http://".$host."/www/Kalaweit/app_connexion/maj_pwd?token=$token'>http://".$host."/www/Kalaweit/app_connexion/maj_pwd?token=$token</a>
                 </p>
                 <br>
                 <p>Ce lien sera valable 24 heures.</p>
@@ -123,7 +130,7 @@ class App_connexion
 
                 ";
 
-                require_once(__DIR__ .'/../Manager/Send_mail.php');
+                require_once(__DIR__ .'/../../Manager/Send_mail.php');
 
                 send_mail($p_to,$p_subject,$p_body);
 

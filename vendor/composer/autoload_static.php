@@ -92,10 +92,6 @@ class ComposerStaticInit05019eedc9c74b58b085913005fe8d3e
             'Matrix\\' => 7,
             'Manager\\' => 8,
         ),
-        'K' => 
-        array (
-            'Kalaweit\\' => 9,
-        ),
         'C' => 
         array (
             'Core\\' => 5,
@@ -157,10 +153,6 @@ class ComposerStaticInit05019eedc9c74b58b085913005fe8d3e
         'Manager\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/Manager',
-        ),
-        'Kalaweit\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/Kalaweit',
         ),
         'Core\\' => 
         array (

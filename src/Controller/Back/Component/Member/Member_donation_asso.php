@@ -27,10 +27,10 @@ class Member_donation_asso
 
         $p_name = "Dons Association";
         $p_id = "donation_asso_by_member";
-        $p_update = "www/Kalaweit/Asso_donation_asso/update?don_id=";
-        $p_delete = "www/Kalaweit/Asso_donation_asso/delete?don_id=";
-        $p_print = "www/Kalaweit/receipt/add?don_id=";
-        $p_add = "www/Kalaweit/Asso_donation_asso/add?cli_id=".$_GET["cli_id"];
+        $p_update = "/www/Kalaweit/Asso_donation_asso/update?don_id=";
+        $p_delete = "/www/Kalaweit/Asso_donation_asso/delete?don_id=";
+        $p_print = "/www/Kalaweit/receipt/add?don_id=";
+        $p_add = "/www/Kalaweit/Asso_donation_asso/add?cli_id=".$_GET["cli_id"];
         $p_position_status = 3;
         /* Instanciation et application de le methode render de l'objet Table */
 

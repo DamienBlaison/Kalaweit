@@ -1,6 +1,6 @@
 <?php
-
-if($_SERVER["HTTP_HOST"] == 'localhost:8888'){ $host = 'local';} else { $host = 'online';};
+$host = 'local';
+//if($_SERVER["HTTP_HOST"] == 'localhost:8888'){ $host = 'local';} else { $host = 'online';};
 
 return  $config = [
 
@@ -15,6 +15,7 @@ return  $config = [
         "local" =>
 
         [
+            "site" => 'localhost:8888',
             "host" => 'localhost:8889',
             "user" => "root",
             "pass" => "root",
@@ -24,6 +25,7 @@ return  $config = [
 
         "online" =>
         [
+            "site" => 'admin-pp.kalaweit.org',
             "host" => 'localhost',
             "user" => "kalaweit",
             "pass" => "kalaweit",

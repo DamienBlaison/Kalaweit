@@ -102,22 +102,8 @@ class My_account
         </div>
     </div>
 
-    <script type="text/javascript">
-
-    document.getElementById('info_btn').addEventListener('click', function(){
-
-        if(document.getElementById('info_member').style.display == 'none'){
-            document.getElementById('info_member').style.display = 'flex';
-            document.getElementById('info_btn').value='Réduire';
-        }
-        else {
-            document.getElementById('info_member').style.display = 'none';
-            document.getElementById('info_btn').value='Modifier';
-        }
-
-    });
-
-    </script>
+    <script src="/Js/Front/My_account.js"></script>
+    
     <?php
     include("Footer.php");
 

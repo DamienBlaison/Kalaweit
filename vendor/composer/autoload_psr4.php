@@ -18,7 +18,6 @@ return array(
     'Model\\' => array($baseDir . '/src/Model'),
     'Matrix\\' => array($vendorDir . '/markbaker/matrix/classes/src'),
     'Manager\\' => array($baseDir . '/src/Manager'),
-    'Kalaweit\\' => array($baseDir . '/src/Kalaweit'),
     'Core\\' => array($baseDir . '/src/Core'),
     'Controller\\' => array($baseDir . '/src/Controller'),
     'Composer\\Installers\\' => array($vendorDir . '/composer/installers/src/Composer/Installers'),

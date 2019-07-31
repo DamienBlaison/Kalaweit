@@ -98,7 +98,7 @@ class Table
 
                     $body .= '<td style = "width : 47px;">';
 
-                    $body .=    '<a href="/www/Receipt/'.$value[1].'.pdf" class="btn btn-primary" target="_blank"><i class="fa  fa-print"></i></a>';
+                    $body .=    '<a href="/www/Receipt/'.$value[1].'.pdf" class="btn btn-primary"><i class="fa  fa-print"></i></a>';
 
                     $body .= '</td>';
                 }
@@ -148,8 +148,8 @@ class Table
 
                     } else {
 
-                        $body .=    '<a style="margin-right:5px;" href="/'.$this->update.$value[0].'&from='.$from.'" class="btn btn-primary" id="update_'.$value[0].'"><i class="fa fa-edit"></i></a>';
-                        $body .=    '<a style="margin-right:5px;"href="/'.$this->delete.$value[0].'" class="btn btn-danger" id="delete_'.$value[0].'" onclick ="return confirm(\'Etes vous sur de vouloir supprimer cet enregistrement\')"><i class="fa  fa-trash"></i></a>';
+                        $body .=    '<a style="margin-right:5px;" href="'.$this->update.$value[0].'&from='.$from.'" class="btn btn-primary" id="update_'.$value[0].'"><i class="fa fa-edit"></i></a>';
+                        $body .=    '<a style="margin-right:5px;"href="'.$this->delete.$value[0].'" class="btn btn-danger" id="delete_'.$value[0].'" onclick ="return confirm(\'Etes vous sur de vouloir supprimer cet enregistrement\')"><i class="fa  fa-trash"></i></a>';
 
                     }
 
@@ -157,11 +157,11 @@ class Table
 
                         if( $name_receipt != NULL){
 
-                            $body .=    '<a href="/www/Receipt/'.$name_receipt["rec_number"].'.pdf" target="_blank" style="margin-right:5px;" class="btn btn-success" id="print_'.$value[0].'" ><i class="fa fa-print"></i></a>';
+                            $body .=    '<a href="/www/Receipt/'.$name_receipt["rec_number"].'.pdf" style="margin-right:5px;" class="btn btn-success" id="print_'.$value[0].'" ><i class="fa fa-print"></i></a>';
 
                         } else {
 
-                            $body .=    '<a href="/'.$this->print.$value[0].'" target="_blank" style="margin-right:5px;" class="btn btn-warning" id="print_'.$value[0].'" ><i class="fa fa-print"></i></a>';
+                            $body .=    '<a href="'.$this->print.$value[0].'" style="margin-right:5px;" class="btn btn-warning" id="print_'.$value[0].'" ><i class="fa fa-print"></i></a>';
                         }
 
                     } else {
@@ -191,7 +191,7 @@ class Table
             $pagination .=  '<div class="col-12 col-sm-4">';
             $pagination .=       '<ul class="pagination">';
             $pagination .=            '<li class="page-item " id="previous_'.$this->id.'"><a class="page-link" >Previous</a></li>';
-            $pagination .=            '<li class="page-item" id="ad_'.$this->id.'"><a class="page-link" href="/'.$this->add.'"><i class="fa fa-plus"></i></a></li>';
+            $pagination .=            '<li class="page-item" id="ad_'.$this->id.'"><a class="page-link" href="'.$this->add.'"><i class="fa fa-plus"></i></a></li>';
             $pagination .=            '<li class="page-item" id="next_'.$this->id.'"><a class="page-link" >Next</a></li>';
             $pagination .=        '</ul>';
             $pagination .=' </div>';

@@ -12,7 +12,6 @@ class Receipt
     function render($open)
     {
 
-
         ob_start();
         ?>
         <page backtop="10mm" backbottom="10mm" backleft="10mm" backright="10mm">
@@ -153,10 +152,7 @@ class Receipt
                     </tr>
                 </table>
             </page_footer>
-
-
-
-
+            
             <?php
             $content = ob_get_clean();
 
@@ -164,13 +160,13 @@ class Receipt
 
             $html2pdf->writeHTML($content);
 
-            $html2pdf->output( __DIR__ . '/../../../../www/Receipt/'.$this->content["receipt_number"].'.pdf', 'F');
+            $html2pdf->output( __DIR__ . '/../../../../Ged/Receipt/R_gibbon/'.$this->content["receipt_number"].'.pdf', 'F');
 
             $url = explode("/",$_SERVER['REQUEST_URI']);
 
             if ($open !== "close" ){
 
-                $html2pdf->output( __DIR__ . '/../../../../www/Receipt/'.$this->content["receipt_number"].'.pdf', 'D');
+                $html2pdf->output( __DIR__ . '/../../../../Ged/Receipt/R_gibbon/'.$this->content["receipt_number"].'.pdf', 'D');
 
             };
 

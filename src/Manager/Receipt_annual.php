@@ -34,9 +34,9 @@ class Receipt_annual
 
         $suffixe = '_'.str_replace('/','-',$cli_info["cli_firstname"]).'_'.str_replace('/','-',$cli_info["cli_lastname"]);
 
-        $req = "SELECT MAX(rec_number) FROM asso_receipt WHERE rec_number LIKE 'RF_%'";
+        $req = "SELECT MAX(rec_number) FROM asso_receipt WHERE rec_number LIKE 'R_fisc_%'";
 
-        $prefixe = "RF_".date('Y')."_";
+        $prefixe = "R_fisc_".date('Y')."_";
 
         $rec_number = ($this->bdd->query($req));
 
@@ -46,18 +46,19 @@ class Receipt_annual
 
             $max = explode('_',$receipt_number[0]);
 
-            $receipt_num = intval($max[2]);
+            $receipt_num = intval($max[3]);
 
         } else { $receipt_num = 1000; };
 
         $check = $this->bdd->prepare(" SELECT rec_number From asso_receipt WHERE cli_id = :cli_id");
+
         $prepare_check = [":cli_id"=> htmlspecialchars($check_id)];
+
         $check->execute($prepare_check);
 
         $check_receipt = $check->fetch();
 
         if($check_receipt == NULL){
-
 
         $insert = $this->bdd->prepare(" INSERT INTO asso_receipt (brk_id,cli_id,rec_ts,rec_year,rec_number,rec_mnt) VALUES (2,:cli_id,:rec_ts,:rec_year,:rec_number,:rec_mnt)");
 

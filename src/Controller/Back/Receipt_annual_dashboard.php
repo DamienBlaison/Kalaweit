@@ -6,8 +6,21 @@ class Receipt_annual_dashboard{
 
     function run(){
 
-        exec("cd /Users/damienblaison/Desktop/projet6/src/Controller/Back ; php Receipt_annual_generation.php > /dev/null &");
+        echo 'toto';
 
+        include( __DIR__ .'/../../../config/config.php');
+
+        if($config['host']['host'] == 'local'){
+
+        exec("cd /Users/damienblaison/Desktop/kalaweit/src/Controller/Back ; php Receipt_annual_generation.php > /dev/null &");
+
+        }
+
+        else {
+
+        exec("cd /var/www/admin-pp/src/Controller/Back ; php Receipt_annual_generation.php > /dev/null &");
+
+        }
     }
 
     function dashboard(){

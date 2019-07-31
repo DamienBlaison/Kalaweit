@@ -11,22 +11,6 @@ class Dashboard
         $render  = '';
         $render .= '<div class="container-fluid" style="padding-left:0px;">';
         $render .= '<section class="content">';
-
-        //$render .= '   <div id="kalaweit-admin" class="box box-danger">';
-
-        //$render .= ' <div class="box-header with-border">';
-        //$render .= ' <span class="info-box-icon bg-red"><i class="ion ion-ios-gear-outline"></i></span>';
-        //$render .= '  <h1 id="title_home" class="box-title">KALAWEIT Administration</h1>';
-
-        //$render .= '   <div class="box-tools pull-right">';
-        //$render .= '     <a href="/www/home">';
-        //$render .= ' <img src="/../www/Logo_Kalaweit_Home.jpg">';
-        //$render .= '   </div>';
-        //$render .= '    </a>';
-        //$render .= ' </div>';
-
-        //$render .= '        </div>';
-
         $render .= '   <div class="box box-danger">';
         $render .= ' <div class="box-header with-border">';
 

@@ -33,20 +33,12 @@ class Aside
                     <h4 class="lien_aside">Faire un don pour Dulan</h4>
                 </div>
 
-                <div>
-
-
-                </div>
-
-
                 <div class="media_link">
-
 
                 <div class="d-flex justify-content-around">
                     <a href="https://www.kalaweit.org/boutique/index.php" target="_blank"><i class="fas fa-cart-arrow-down" style="color:#27636B;"></i></a>
                     <a href="https://www.youtube.com/channel/UC6pGpHOJZqtIQ-0uCCT_G_Q" target="_blank"><i class="fab fa-youtube" style="color:red;"></i></a>
                     <a href="https://www.facebook.com/KalaweitFrance/" target="_blank"><i class="fab fa-facebook-square" style="color:#3b5998;"></i></a>
-
                 </div>
                     <p> </p>
                     <h4 class="lien_aside">Liens réseaux/boutique</h4>

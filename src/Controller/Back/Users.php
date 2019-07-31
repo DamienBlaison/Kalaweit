@@ -31,6 +31,11 @@ class Users
 
         $bdd = (new \Manager\Connexion())->getBdd();
 
+        include( __DIR__ .'/../../../config/config.php');
+
+        $server = $config["host"]["host"];
+        $host = $config["Connexion"][$server]["site"];
+
         /* verification de la présence des elements des données dans POST pour permettre la création del'utilisateur */
 
         if (isset($_POST)){
@@ -50,8 +55,8 @@ class Users
                 {
 
                     (new \Manager\Users($bdd))->add();
-
-                    $p_to = $_POST["user_login"];
+                    
+                    $p_to = $_POST["user_email"];
                     $p_subject = 'Création de compte admin Kalaweit';
                     $token = md5(uniqid());
 
@@ -66,7 +71,7 @@ class Users
                     Merci d'initialiser votre mot de passe en suivant le lien ci dessous .
                     </p>
                     <p> <strong>Votre login de connexion sera : ".$_POST['user_login']." </strong></p>
-                    <p><a href='/www/Kalaweit/app_connexion/maj_pwd?token=$token'>/www//Kalaweit/app_connexion/maj_pwd?token=$token</a>
+                    <p><a href='http://".$host."/www/Kalaweit/app_connexion/maj_pwd?token=$token'>http://".$host."/www/Kalaweit/app_connexion/maj_pwd?token=$token</a>
                     </p>
                     <br>
                     <p>Ce lien sera valable 24 heures.</p>
@@ -77,7 +82,7 @@ class Users
 
                     ";
 
-                    require_once(__DIR__ .'/../Manager/Send_mail.php');
+                    require_once(__DIR__ .'/../../Manager/Send_mail.php');
 
                     send_mail($p_to,$p_subject,$p_body);
 

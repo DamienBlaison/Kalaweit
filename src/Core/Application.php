@@ -134,9 +134,7 @@ class Application
                     }
                 }
 
-                else
-
-                {
+                else {
 
                     if (class_exists($class)) {
 
@@ -341,8 +339,45 @@ class Application
 
                 break;
 
-                default:
+                case 'Receipt':
 
+                $Receipts_type = explode('_',$parts[1]);
+
+                    $file = __DIR__ .'/../../Ged/Receipt/R_'.$Receipts_type[1].'/'.$parts[1];
+
+                    if (file_exists($file)) {
+                        header('Content-Description: File Transfer');
+                        header('Content-Type: application/octet-stream');
+                        header('Content-Disposition: attachment; filename="'.basename($file).'"');
+                        header('Expires: 0');
+                        header('Cache-Control: must-revalidate');
+                        header('Pragma: public');
+                        header('Content-Length: ' . filesize($file));
+                        readfile($file);
+                        exit;
+                    }
+
+                break;
+
+                case 'Export_Excel':
+
+                    $file = __DIR__ .'/../../Ged/Export_Excel/'.$parts[1];
+
+                    if (file_exists($file)) {
+                        header('Content-Description: File Transfer');
+                        header('Content-Type: application/octet-stream');
+                        header('Content-Disposition: attachment; filename="'.basename($file).'"');
+                        header('Expires: 0');
+                        header('Cache-Control: must-revalidate');
+                        header('Pragma: public');
+                        header('Content-Length: ' . filesize($file));
+                        readfile($file);
+                        exit;
+                    }
+
+                break;
+
+                default:
 
                 $class = '\\Controller\\Front\\' . ucfirst($parts[0]);
 

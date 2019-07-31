@@ -27,10 +27,10 @@ class Member_adhesion
 
         $p_name = "Adhesion";
         $p_id = "adhesion_by_member";
-        $p_update = "www/Kalaweit/asso_adhesion/update?adhesion_id=";
-        $p_delete = "www/Kalaweit/asso_adhesion/delete?adhesion_id=";
-        $p_print = "www/Kalaweit/receipt/add?adhesion_id=";
-        $p_add = "www/Kalaweit/asso_adhesion/add?cli_id=".$_GET["cli_id"];
+        $p_update = "/www/Kalaweit/asso_adhesion/update?adhesion_id=";
+        $p_delete = "/www/Kalaweit/asso_adhesion/delete?adhesion_id=";
+        $p_print = "/www/Kalaweit/receipt/add?adhesion_id=";
+        $p_add = "/www/Kalaweit/asso_adhesion/add?cli_id=".$_GET["cli_id"];
         $p_position_status = 3;
 
 

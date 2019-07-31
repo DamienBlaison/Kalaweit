@@ -48,13 +48,13 @@
 
         $info_receipt_annual = (new \Manager\Receipt($bdd))->get_receipt_by_member_front();
 
-    $info_donation = (new \Manager\Asso_donation($bdd))->get_donation_by_member_front();
+        $info_donation = (new \Manager\Asso_donation($bdd))->get_donation_by_member_front();
         $info_donation_asso = (new \Manager\Asso_donation_asso($bdd))->get_donation_by_member_asso_front();
         $info_adhesion = (new \Manager\Asso_adhesion($bdd))->get_adhesion_by_member_front();
         $info_donation_dulan = (new \Manager\Asso_donation_dulan($bdd))->get_donation_dulan_by_member_front();
         $info_donation_forest = (new \Manager\Asso_donation_forest($bdd))->get_donation_forest_by_member_front();
 
-        $print = 'www/Kalaweit/receipt/';
+        $print = '/Receipt/';
 
         $table = [
 

@@ -5,9 +5,6 @@ use PHPMailer\PHPMailer\PHPMailer;
 
 function send_mail($p_to,$p_subject,$p_body){
 
-
-    require_once __DIR__ . '/../../../vendor/autoload.php';
-
     //Create a new PHPMailer instance
     $mail = new PHPMailer;
 
@@ -37,6 +34,7 @@ function send_mail($p_to,$p_subject,$p_body){
     //$mail->addAttachment('images/phpmailer_mini.png');
 
     //send the message, check for errors
+
     if (!$mail->send()) {
         echo '<script>
         alert("Le Message n\'a pas pu être envoyé. \nErreur:\n'. $mail->ErrorInfo.'");

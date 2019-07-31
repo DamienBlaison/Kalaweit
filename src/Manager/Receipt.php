@@ -44,9 +44,9 @@ class Receipt
 
             $suffixe = '_'.str_replace('/','-',$info_donator["cli_firstname"]).'_'.str_replace('/','-',$info_donator["cli_lastname"]);
 
-            $req = "SELECT MAX(rec_number) FROM asso_receipt WHERE rec_number LIKE '%Adhesion%'";
+            $req = "SELECT MAX(rec_number) FROM asso_receipt WHERE rec_number LIKE '%R_adhesion%'";
 
-            $prefixe = "R_".date('Y')."_Adhesion_";
+            $prefixe = "R_adhesion_".date('Y')."_";
 
             $rec_number = ($this->bdd->query($req));
 
@@ -95,31 +95,31 @@ class Receipt
 
                 case '700':
 
-                $req = "SELECT MAX(rec_number) FROM asso_receipt WHERE rec_number LIKE '%Dulan%'";
+                $req = "SELECT MAX(rec_number) FROM asso_receipt WHERE rec_number LIKE '%R_dulan%'";
 
-                $prefixe = "R_".date('Y')."_Dulan_";
+                $prefixe = "R_dulan_".date('Y')."_";
 
 
                 break;
 
                 case '703':
 
-                $req = "SELECT MAX(rec_number) from asso_receipt WHERE rec_number LIKE '%Foret%' ";
-                $prefixe = "R_".date('Y')."_Foret_";
+                $req = "SELECT MAX(rec_number) from asso_receipt WHERE rec_number LIKE '%R_forest%' ";
+                $prefixe = "R_forest_".date('Y')."_";
 
                 break;
 
                 case '704':
 
-                $req = "SELECT MAX(rec_number) from asso_receipt WHERE rec_number LIKE '%Asso%' ";
-                $prefixe = "R_".date('Y')."_Asso_";
+                $req = "SELECT MAX(rec_number) from asso_receipt WHERE rec_number LIKE '%R_asso%' ";
+                $prefixe = "R_asso_".date('Y')."_";
 
                 break;
 
                 default:
 
-                $req = "SELECT MAX(rec_number) from asso_receipt WHERE rec_number LIKE '%Gibbon%' ";
-                $prefixe = "R_".date('Y')."_Gibbon_";
+                $req = "SELECT MAX(rec_number) from asso_receipt WHERE rec_number LIKE '%R_gibbon%' ";
+                $prefixe = "R_gibbon_".date('Y')."_";
 
                 break;
             }
@@ -451,7 +451,11 @@ class Receipt
                         $reqprep2= $this->bdd->prepare("DELETE FROM asso_receipt WHERE rec_number = :rec_number ");
                         $reqprep2->execute($prepare);
 
-                        unlink( __DIR__ .'/../../../www/Receipt/'.$receipt_name);
+                        $folder = explode('_',$receipt_name);
+
+                        $file = __DIR__ .'/../../Ged/Receipt/R_'.$folder[1].'/'.$receipt_name;
+                        
+                        unlink($file);
 
                     }
 

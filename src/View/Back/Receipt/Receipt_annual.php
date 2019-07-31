@@ -161,7 +161,7 @@ class Receipt_annual
 
             $html2pdf->writeHTML($content);
 
-            $html2pdf->output( __DIR__ . '/../../../../www/Receipt/'.$this->content["receipt_number"].'.pdf', 'F');
+            $html2pdf->output( __DIR__ . '/../../../../Ged/Receipt/R_fisc/'.$this->content["receipt_number"].'.pdf', 'F');
 
             echo "\n";
             echo '_______________________________________________________________________________________________';
@@ -174,7 +174,7 @@ class Receipt_annual
 
             if ($open !== "close" ){
 
-                $html2pdf->output( __DIR__ . '/../../../../www/Receipt/'.$this->content["receipt_number"].'.pdf', 'D');
+                $html2pdf->output( __DIR__ . '/../../../../Ged/Receipt/R_fisc/'.$this->content["receipt_number"].'.pdf', 'D');
 
             };
 

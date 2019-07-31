@@ -6,7 +6,6 @@ class Donation_one_shot
 {
 
     function render($id,$title,$data,$col){
-
         $data_json = json_encode($data);
 
         $chartJs  = '';
@@ -30,58 +29,12 @@ class Donation_one_shot
         $chartJs .= '      </div>';
         $chartJs .= '      </section>';
 
-        $chartJs .= "<script>
-
-        var ctx = document.getElementById('".$id."' ).getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['01', '02', '03', '04', '05', '06','07','08','09','10','11','12'],
-                datasets: [{
-                    label: 'Nb',
-                    data: ".$data_json.",
-                    backgroundColor: [
-                        'rgba(54, 162, 235, 0.6)',
-                        'rgba(54, 162, 235, 0.6)',
-                        'rgba(54, 162, 235, 0.6)',
-                        'rgba(54, 162, 235, 0.6)',
-                        'rgba(54, 162, 235, 0.6)',
-                        'rgba(54, 162, 235, 0.6)',
-                        'rgba(54, 162, 235, 0.6)',
-                        'rgba(54, 162, 235, 0.6)',
-                        'rgba(54, 162, 235, 0.6)',
-                        'rgba(54, 162, 235, 0.6)',
-                        'rgba(54, 162, 235, 0.6)',
-                        'rgba(54, 162, 235, 0.6)'
-                    ],
-                    borderColor: [
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(54, 162, 235, 1)'
-                    ],
-                    borderWidth: 0.5
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-        </script>";
+        $chartJs .= "<script type='text/javascript'>
+                        var id = '$id';
+                        var data = '$data_json';
+                    </script>";
+    
+        $chartJs .= "<script src='/Js/Back/Annual_report.js'></script>";
 
 
         return $chartJs;

@@ -58,7 +58,7 @@ class Export_Excel
         /* ecriture du fichier */
 
         //$writer->save($name.'.xlsx');
-        $writer->save(__DIR__ .'/../../../../www/Export_Excel/Export_'.$name.'.xlsx');
+        $writer->save(__DIR__ .'/../../../../Ged/Export_Excel/Export_'.$name.'.xlsx');
 
     }
 }

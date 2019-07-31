@@ -34,8 +34,7 @@ class Make_gift
                     </div>
                 </div>
             </div>
-            <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=EUR"></script>
-
+            
             <?php
 
             include("Footer.php");
