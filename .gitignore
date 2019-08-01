@@ -1,1 +1,9 @@
-ignore
+R_*
+/Ged/Export_Excel
+/Ged/Receipt/R_adhesion
+/Ged/Receipt/R_asso
+/Ged/Receipt/R_dulan
+/Ged/Receipt/R_fisc
+/Ged/Receipt/R_forest
+/Ged/Receipt/R_gibbon
+/config
