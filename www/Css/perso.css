@@ -173,3 +173,17 @@ h4
 .progress{
     height: 35px;
 }
+
+.result_request{
+    max-height: 500px;
+    overflow: auto;
+}
+.thead-dark{
+    background-color: black;
+    color:white;
+    overflow: auto;
+}
+
+textarea{
+    resize:none;
+}

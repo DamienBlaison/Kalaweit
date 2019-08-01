@@ -19,6 +19,14 @@ class Maintenance
 
         $maintenance  .= '</div>';
         $maintenance  .= '</form>';
+
+        $maintenance   .= '<form name="request" action="" method="post">';
+        $maintenance  .= '<div class="container-fluid" style="padding-left:0px;">';
+
+        $maintenance   .= ($param["box_request"])->render();
+        
+        $maintenance  .= '</div>';
+        $maintenance   .= '</form>';
         $maintenance  .= '</section>';
 
         echo $maintenance;
