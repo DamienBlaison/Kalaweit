@@ -159,20 +159,22 @@ $user = (new \Manager\Users($bdd))->get_id_from_Login($_SESSION['user_login']);
                             </li>
                         </ul>
                     </li>
-
-                    <li class=" treeview" style="border-left:3px solid #3c8dbc; ">
-                        <a href="#"><i class="fa  fa-cog"></i> <span>Administration</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
-                        <ul class="treeview-menu">
-                            <li class="treeview"><a href="#"><i class="fa  fa-users"></i> Gestion des utilisateurs <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
-                                <ul class="treeview-menu">
-                                    <li><a href="/www/Kalaweit/users/add"><i class="fa fa-plus"></i> Ajouter un utilisateur</a></li>
-                                    <li><a href="/www/Kalaweit/users/list/1"><i class="fa fa-edit"></i> Modifier un utilisateur</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="/www/Kalaweit/maintenance/update"><i class="fa fa-wrench"></i>Maintenance</a>
-                            </li>
-                        </ul>
+                    <?php if($_SESSION["role"] == '1'){?>
+                        <li class=" treeview" style="border-left:3px solid #3c8dbc; ">
+                            <a href="#"><i class="fa  fa-cog"></i> <span>Administration</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                            <ul class="treeview-menu">
+                                <li class="treeview"><a href="#"><i class="fa  fa-users"></i> Gestion des utilisateurs <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="/www/Kalaweit/users/add"><i class="fa fa-plus"></i> Ajouter un utilisateur</a></li>
+                                        <li><a href="/www/Kalaweit/users/list/1"><i class="fa fa-edit"></i> Modifier un utilisateur</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/www/Kalaweit/maintenance/update"><i class="fa fa-wrench"></i>Maintenance</a>
+                                </li>
+                            </ul>
                     </li>
+                    <?php
+                    } ?>
                 </ul>
             </section>
         </aside>

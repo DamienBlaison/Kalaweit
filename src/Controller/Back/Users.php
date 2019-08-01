@@ -46,7 +46,8 @@ class Users
                 ((isset($_POST["user_login"]))&&($_POST["user_login"])!= '')&&
                 ((isset($_POST["user_first_name"]))&&($_POST['user_first_name'])!='')&&
                 ((isset($_POST["user_last_name"]))&&($_POST['user_last_name'])!='')&&
-                ((isset($_POST["user_email"]))&&($_POST['user_email'])!='')
+                ((isset($_POST["user_email"]))&&($_POST['user_email'])!='')&&
+                ((isset($_POST["user_role"]))&&($_POST['user_role'])!='')
 
 
                 )
@@ -55,7 +56,7 @@ class Users
                 {
 
                     (new \Manager\Users($bdd))->add();
-                    
+
                     $p_to = $_POST["user_email"];
                     $p_subject = 'Création de compte admin Kalaweit';
                     $token = md5(uniqid());
@@ -104,6 +105,7 @@ class Users
 
     $gender = (new \Manager\Gender())->getAll();
     $lang  = (new \Manager\Cli_lang())->getAll();
+    $role = (new \Manager\Role())->getAll();
 
     /* création d'un tableau d'élément HTML à passer à la vue */
 
@@ -115,6 +117,8 @@ class Users
         $mail = (new \Controller\Back\htmlElement\Form_group_input("user_email","Email","","fa fa-at"))->render(),
         $login = (new \Controller\Back\htmlElement\Form_group_input("user_login","Login","","fa fa-lock"))->render(),
         $lang = (new \Controller\Back\htmlElement\Form_group_select("user_preferred_language",$lang,"","fa fa-commenting","config"))->render(),
+        $user_role = (new \Controller\Back\htmlElement\Form_group_select("user_roles",$role,"","fa fa-gear","config"))->render(),
+
         $submit_identification = (new \Controller\Back\htmlElement\Form_group_btn("submit","btn btn-primary pull-right","submit_identification","Ajouter cet utilisateur"))->render()
 
     ];
@@ -149,6 +153,7 @@ function update(){
 
     $gender = (new \Manager\Gender())->getAll();
     $lang  = (new \Manager\Cli_lang())->getAll();
+    $role = (new \Manager\Role())->getAll();
 
     /* création d'un tableau d'élément HTML à passer à la vue */
 
@@ -159,6 +164,8 @@ function update(){
         $lastname = (new \Controller\Back\htmlElement\Form_group_input("user_last_name","Nom",$user["user_last_name"],"fa fa-user"))->render(),
         $mail = (new \Controller\Back\htmlElement\Form_group_input("user_email","Email",$user["user_email"],"fa fa-at"))->render(),
         $lang = (new \Controller\Back\htmlElement\Form_group_select("user_preferred_language",$lang,$user["user_preferred_language"],"fa fa-commenting","config"))->render(),
+        $user_role = (new \Controller\Back\htmlElement\Form_group_select("user_roles",$role,$user["user_roles"],"fa fa-gear","config"))->render(),
+
         $submit_identification = (new \Controller\Back\htmlElement\Form_group_btn("submit","btn btn-primary pull-right","submit_identification","Sauvegarder les informations"))->render()
 
     ];

@@ -109,4 +109,9 @@ return  $config = [
         'WAIT' => 'WAIT',
         'OK'   => 'OK'
     ]
+    ,
+    'role' => [
+        '0' => 'User',
+        '1' => 'Admin'
+    ]
 ];

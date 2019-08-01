@@ -22,11 +22,11 @@ class Users
 
                 "INSERT INTO
 
-                sso_user (user_login,user_password,user_email,user_first_name,user_last_name,user_title,user_preferred_language,user_avatar,user_active)
+                sso_user (user_login,user_password,user_email,user_first_name,user_last_name,user_title,user_preferred_language,user_avatar,user_active,user_roles)
 
                 VALUES
 
-                (:user_login,
+                (   :user_login,
                     :user_password,
                     :user_email,
                     :user_first_name,
@@ -34,7 +34,9 @@ class Users
                     :user_title,
                     :user_preferred_language,
                     '/Img/Avatar/Unknown_PersonH.png',
-                    1);
+                    1,
+                    :user_roles
+                );
 
             ");
 
@@ -46,8 +48,8 @@ class Users
                 ":user_first_name" => htmlspecialchars($_POST["user_first_name"]),
                 ":user_last_name" => htmlspecialchars($_POST["user_last_name"]),
                 ":user_title" => htmlspecialchars($_POST["user_title"]),
-                ":user_preferred_language" => htmlspecialchars($_POST["user_preferred_language"])
-
+                ":user_preferred_language" => htmlspecialchars($_POST["user_preferred_language"]),
+                ":user_roles" => htmlspecialchars($_POST["user_roles"])
             ];
 
             $reqprep->execute($prepare);
@@ -355,4 +357,12 @@ class Users
 
     }
 
+    public function get_role($login)
+    {
+        $reqprep = $this->bdd->prepare("SELECT user_roles FROM sso_user WHERE user_login = :user_login");
+        $prepare = ["user_login" => $login];
+        $reqprep->execute($prepare);
+        $data = $reqprep->fetch();
+        return $data[0];
+    }
 }

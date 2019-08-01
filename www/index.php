@@ -12,7 +12,7 @@ ini_set('date.timezone', 'Europe/Berlin');
 
 session_start();
 
-
+var_dump($_SESSION);
 
 //ini_set('error_reporting', E_ALL | E_STRICT );
 //ini_set('log_errors', 'On');

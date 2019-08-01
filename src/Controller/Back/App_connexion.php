@@ -37,6 +37,7 @@ class App_connexion
                     case '1':
 
                     $_SESSION["user_login"] = $_POST['login'];
+                    $_SESSION["role"] = (new \Manager\Users($bdd))->get_role($_SESSION["user_login"]);
 
                     header("Location: /www/Kalaweit/dashboard/get");
 
