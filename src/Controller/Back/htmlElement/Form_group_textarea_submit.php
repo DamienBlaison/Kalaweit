@@ -19,7 +19,6 @@ class Form_group_textarea_submit{
         $p_class_submit,
         $p_value_submit
 
-
     )
 
     {
@@ -36,14 +35,15 @@ class Form_group_textarea_submit{
     public function render(){
 
     $form_group_input_submit= '';
-    $form_group_input_submit.= '<div class = "col-md-12 mb10 mt10">';
+    $form_group_input_submit.= '<div class = "col-md-12 mb10 mt10 ">';
     $form_group_input_submit.=      '<div class ="input-group">';
     $form_group_input_submit.=           '<textarea type="text" class="form-control" placeholder="'.$this->placeholder.'" name="'.$this->name.'">'.$this->value.'</textarea>';
     $form_group_input_submit.=      '</div>';
     $form_group_input_submit.= '</div>';
-    $form_group_input_submit.= '<div class="col-md-12 mt10">';
+    $form_group_input_submit.= '<div class="col-md-12 mt10 mb20">';
     $form_group_input_submit.=      '<input type="submit" class="'.$this->class_submit.'" value="'.$this->value_submit.'" name="'.$this->name_submit.'">';
     $form_group_input_submit.= '</div>';
+
 
     return $form_group_input_submit;
 

@@ -39,6 +39,8 @@ class Maintenance
 
         ));
 
+        $result_request = '';
+
         if(isset($_POST["request"]) && $_POST['request'] != ''){
 
             $request = $_POST["request"];

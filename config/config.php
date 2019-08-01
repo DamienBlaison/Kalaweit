@@ -1,18 +1,25 @@
 <?php
-$host = 'local';
-//if($_SERVER["HTTP_HOST"] == 'localhost:8888'){ $host = 'local';} else { $host = 'online';};
+$server = 'local';
+
+if (is_array($_SERVER)) {
+    if (array_key_exists('SERVER_NAME', $_SERVER)) {
+        $server = strtolower($_SERVER['SERVER_NAME']);
+    }
+} else {
+    $server = getHostname();
+}
 
 return  $config = [
 
     'host' => [
-        'host' => $host
+        'host' => $server
     ]
 
     ,
 
     'Connexion' => [
 
-        "local" =>
+        "localhost" =>
 
         [
             "site" => 'localhost:8888',
@@ -23,7 +30,7 @@ return  $config = [
         ]
         ,
 
-        "online" =>
+        "admin-pp.kalaweit.org" =>
         [
             "site" => 'admin-pp.kalaweit.org',
             "host" => 'localhost',
