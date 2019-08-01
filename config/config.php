@@ -1,8 +1,6 @@
 <?php
 include( __DIR__ ."/config_server.php");
 
-var_dump($host);
-
 return  $config = [
 
     'host' => [
