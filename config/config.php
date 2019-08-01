@@ -1,5 +1,5 @@
 <?php
-include(__DIR__ ."/config_server.php");
+include( __DIR__ ."/config_server.php");
 
 var_dump($host);
 
