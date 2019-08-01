@@ -1,5 +1,5 @@
 <?php
-include("/config/config_server.php");
+include("config_server.php");
 
 return  $config = [
 
