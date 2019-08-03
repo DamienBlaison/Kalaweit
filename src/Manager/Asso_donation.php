@@ -97,6 +97,12 @@ class Asso_donation
 
         $insert = $reqprep->execute($prepare);
 
+        $rerqprep2 = $this->bdd->prepare("SELECT MAX (don_id) From asso_donation");
+        $prepare2 = [];
+        $reqprep2->execute($prepare2);
+        $don_id = $reqprep2->fetch(\PDO::FETCH_NUM);
+        return $don_id[0];
+
     }
 
     function get_last(){

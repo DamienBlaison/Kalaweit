@@ -33,39 +33,45 @@ class Dev {
 
             $mnt = rand(0,150);
 
-            (new \Manager\Asso_donation($bdd))->add_random($ids[$key_id],$causes[$key_cause],$mnt,$status[$key_status],$year);
+            $don_id = (new \Manager\Asso_donation($bdd))->add_random($ids[$key_id],$causes[$key_cause],$mnt,$status[$key_status],$year);
+
+
+            if($key_status == 'OK'){
+
+                (new \Manager\Receipt($bdd))->(add(["type" => 'donation', "don_id" => $don_id]){)
+            }
 
         }
 
-        for ($i=0; $i < 100; $i++) {
+        /// for ($i=0; $i < 100; $i++) {
+        ///
+        ///    $key_id = array_rand($ids);
+        ///   $key_status = array_rand($status);
+        ///   $mnt = rand(0,150);
 
-            $key_id = array_rand($ids);
-            $key_status = array_rand($status);
-            $mnt = rand(0,150);
+        ///    (new \Manager\Asso_donation($bdd))->add_random($ids[$key_id],700,$mnt,$status[$key_status],$year);
 
-            (new \Manager\Asso_donation($bdd))->add_random($ids[$key_id],700,$mnt,$status[$key_status],$year);
+        ///}
 
-        }
+        ///for ($i=0; $i < 100; $i++) {
 
-        for ($i=0; $i < 100; $i++) {
+            ///$key_id = array_rand($ids);
+            ///$key_status = array_rand($status);
+            ///$mnt = rand(0,150);
 
-            $key_id = array_rand($ids);
-            $key_status = array_rand($status);
-            $mnt = rand(0,150);
+            ///(new \Manager\Asso_donation($bdd))->add_random($ids[$key_id],703,$mnt,$status[$key_status],$year);
 
-            (new \Manager\Asso_donation($bdd))->add_random($ids[$key_id],703,$mnt,$status[$key_status],$year);
+        ///}
 
-        }
+        ///for ($i=0; $i < 100; $i++) {
 
-        for ($i=0; $i < 100; $i++) {
+            ///$key_id = array_rand($ids);
+            ///$key_status = array_rand($status);
+            ///$mnt = rand(0,150);
 
-            $key_id = array_rand($ids);
-            $key_status = array_rand($status);
-            $mnt = rand(0,150);
+            ///(new \Manager\Asso_donation($bdd))->add_random($ids[$key_id],704,$mnt,$status[$key_status],$year);
 
-            (new \Manager\Asso_donation($bdd))->add_random($ids[$key_id],704,$mnt,$status[$key_status],$year);
-
-        }
+        ///}
 
 
 
