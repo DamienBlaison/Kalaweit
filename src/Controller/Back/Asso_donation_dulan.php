@@ -8,18 +8,20 @@ class Asso_donation_dulan
 
     /** méthode d'appel pour l'ajout d'un don DULAN **/
 
-    function add () {
+    function add() {
 
         /* instanciation de la connexion a la bdd */
 
         $bdd = new \Manager\Connexion();
         $bdd = $bdd->getBdd();
 
+
         /* verification de la présence des données d'entrée et appel de la methode d'ajout du manager */
 
         if (isset($_POST['donation_dulan_mnt']) &&  $_POST['donation_dulan_mnt'] > 0)
 
         {
+
             (new \Manager\Asso_donation_dulan($bdd))->add();
         }
 

@@ -18,6 +18,7 @@ class Asso_adhesion
             (new \Manager\Asso_adhesion($bdd))->add();
         }
 
+
         (new \Controller\Back\Component\Asso_adhesion\Box_add)->render();
 
     }

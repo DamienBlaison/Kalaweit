@@ -453,11 +453,7 @@ class Ajax_get
 
             $data = base64_decode($image_array_2[1]);
 
-            var_dump($_GET);
-
             $target_file = __DIR__ .'/../../../www/Img/Avatar/Avatar'.$_GET['user_id'].'_'.date("YmdHms").'.png';
-
-            var_dump($target_file);
 
             $imageName = $target_file;
 
@@ -466,8 +462,6 @@ class Ajax_get
             file_put_contents($imageName, $data);
 
             $prep_file = array_pop($name_file);
-
-            var_dump($prep_file);
 
             $bddM = new \Manager\Connexion();
             $bdd = $bddM->getBdd();
@@ -568,7 +562,7 @@ class Ajax_get
         $reqprep_insert->execute($prepare_insert);
 
     }
-        function export_excel(){
+        function Export_excel(){
 
             $bdd = (new \Manager\Connexion())->getBdd();
 
@@ -584,7 +578,7 @@ class Ajax_get
                 "content"=> $data["content"]
             ];
 
-        (new \Controller\Back\Export\Export_Excel())->export_excel($p_tab);
+        (new \Controller\Back\Export_Excel())->export_excel($p_tab);
 
         }
 

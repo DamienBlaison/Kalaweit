@@ -1,6 +1,6 @@
 <?php
 /* classe  permmettant la création de fichier excel */
-namespace Controller\Back\Export;
+namespace Controller\Back;
 
 /* import des traits du package */
 
@@ -58,7 +58,8 @@ class Export_Excel
         /* ecriture du fichier */
 
         //$writer->save($name.'.xlsx');
-        $writer->save(__DIR__ .'/../../../../Ged/Export_Excel/Export_'.$name.'.xlsx');
+        $writer->save( __DIR__ .'/../../../Ged/Export_Excel/Export_'.$name.'.xlsx');
+
 
     }
 }

@@ -27,11 +27,11 @@ class Asso_donation_forest
                 "INSERT INTO
                 asso_donation
 
-                ( brk_id , cli_id , don_mnt , ptyp_id, don_ts, cau_id  )
+                ( brk_id , cli_id , don_mnt , ptyp_id, don_ts, cau_id ,don_status )
 
                 VALUES
 
-                ( :brk_id, :cli_id, :donation_forest_mnt, :ptyp_id , :donation_forest_ts, :cau_id)
+                ( :brk_id, :cli_id, :donation_forest_mnt, :ptyp_id , :donation_forest_ts, :cau_id, :don_status)
 
                 "
 
@@ -44,10 +44,21 @@ class Asso_donation_forest
                 ":donation_forest_mnt"=> htmlspecialchars($_POST['donation_forest_mnt']),
                 ":ptyp_id"=> htmlspecialchars($_POST['ptyp_id']),
                 ":donation_forest_ts" => date('Y-m-d G:i:s'),
-                "cau_id" => '703'
+                ":cau_id" => '703',
+                ":don_status" => htmlspecialchars($_POST['don_status'])
             ];
 
             $insert = $reqprep->execute($prepare);
+
+            $reqprep2 = $this->bdd->prepare("SELECT MAX(don_id) from asso_donation");
+            $prepare2 = [];
+            $reqprep2->execute($prepare2);
+            $p_don_id = $reqprep2->fetch();
+
+            if($_POST["don_status"] == 'OK'){
+
+                (new \Manager\Receipt($this->bdd))->add(["don_id" =>$p_don_id[0],"type"=>"donation_forest"]);
+            }
 
         }
     }
@@ -489,6 +500,16 @@ class Asso_donation_forest
                             ];
 
                             $reqprep->execute($prepare);
+
+                            $reqprep2 = $this->bdd->prepare("SELECT MAX(don_id) from asso_donation");
+                            $prepare2 = [];
+                            $reqprep2->execute($prepare2);
+                            $p_don_id = $reqprep2->fetch();
+
+                            if($_POST["don_status"] == 'OK'){
+
+                                (new \Manager\Receipt($this->bdd))->add(["don_id" =>$p_don_id[0],"type"=>"donation_forest"]);
+                            }
 
                             switch ($_GET["from"]) {
                                 case 'add':

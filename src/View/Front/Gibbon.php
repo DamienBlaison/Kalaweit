@@ -29,7 +29,7 @@ class Gibbon
                                         </div>
                                         <div id="remove_make_gift">
                                             <?php if(isset($_SESSION["user_login"])){?>
-                                                <button id="make_gift" class= "make_gift">Faire un don</button></a>
+                                                <button id="make_gift" class="make_gift">Faire un don</button></a>
                                             <?php } else { ?> <a  id="make_gift3" href="/www/Connexion"><button class="btn-form mt20" type="button" name="button">
                                                 Se connecter
                                             </button></a> <?php } ?>

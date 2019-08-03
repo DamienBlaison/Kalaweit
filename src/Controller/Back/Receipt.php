@@ -74,24 +74,7 @@ class Receipt
 
     }
 
-    function add2(){
-
-        $start = (new \Controller\Back\htmlElement\Form_group_input_date('start_date','jj/mm/aaaa','','fa fa-calendar','Date de début'))->render();
-        $end   = (new \Controller\Back\htmlElement\Form_group_input_date('end_date','jj/mm/aaaa','','fa fa-calendar','Date de fin'))->render();
-
-        $submit = (new \Controller\Back\htmlElement\Form_group_btn('submit','btn btn-primary col-md-12','receipt_btn','Générer les reçus'))->render();
-
-        $card_nb_receipt = (new \Controller\Back\htmlElement\Box_info("100/100",'Reçu(s) généré(s)','fa fa-page',$p_color = 'bg-aqua'))->render();
-
-        $content = [$start, $end, $submit,'</br>'];
-        $content2 = [$card_nb_receipt];
-
-
-        $box = (new \Controller\Back\htmlElement\Box('Génération des reçus','box-primary col-md-12',$content,[6,6,12,12]))->render();
-
-
-        return (new \View\Back\Receipt\V_receipt([$box,$card_nb_receipt]))->render();
-    }
+    
 
     function add(){
 

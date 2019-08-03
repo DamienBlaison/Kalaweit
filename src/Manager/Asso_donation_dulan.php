@@ -27,11 +27,11 @@ class Asso_donation_dulan
                 "INSERT INTO
                 asso_donation
 
-                ( brk_id , cli_id , don_mnt , ptyp_id, don_ts, cau_id  )
+                ( brk_id , cli_id , don_mnt , ptyp_id, don_ts, cau_id ,don_status )
 
                 VALUES
 
-                ( :brk_id, :cli_id, :donation_dulan_mnt, :ptyp_id , :donation_dulan_ts, :cau_id)
+                ( :brk_id, :cli_id, :donation_dulan_mnt, :ptyp_id , :donation_dulan_ts, :cau_id, :don_status)
 
                 "
 
@@ -44,11 +44,23 @@ class Asso_donation_dulan
                 ":donation_dulan_mnt"=> htmlspecialchars($_POST['donation_dulan_mnt']),
                 ":ptyp_id"=> htmlspecialchars($_POST['ptyp_id']),
                 ":donation_dulan_ts" => date('Y-m-d G:i:s'),
-                "cau_id" => '700'
+                ":cau_id" => '700',
+                ":don_status" => htmlspecialchars($_POST['don_status'])
             ];
 
             $insert = $reqprep->execute($prepare);
 
+            $reqprep2 = $this->bdd->prepare("SELECT MAX(don_id) from asso_donation");
+            $prepare2 = [];
+            $reqprep2->execute($prepare2);
+            $p_don_id = $reqprep2->fetch();
+
+            if($_POST["don_status"] == 'OK'){
+
+                var_dump($p_don_id);
+
+                (new \Manager\Receipt($this->bdd))->add(["don_id" =>$p_don_id[0],"type"=>"donation_dulan"]);
+            }
         }
     }
 
@@ -259,14 +271,14 @@ class Asso_donation_dulan
                                     break;
 
                                     case 'rec':
-                                        $key_table = 'P4.'.$key;
-                                        if ($value == '%1%'){
-                                            $where .= ' AND '.$key_table.' LIKE "%R%"' ;
+                                    $key_table = 'P4.'.$key;
+                                    if ($value == '%1%'){
+                                        $where .= ' AND '.$key_table.' LIKE "%R%"' ;
 
-                                        } else {
-                                            $where .= ' AND '.$key_table.' is null' ;
+                                    } else {
+                                        $where .= ' AND '.$key_table.' is null' ;
 
-                                        }
+                                    }
                                     break;
 
                                 }
@@ -371,14 +383,14 @@ class Asso_donation_dulan
                                         break;
 
                                         case 'rec':
-                                            $key_table = 'P4.'.$key;
-                                            if ($value == '%1%'){
-                                                $where .= ' AND '.$key_table.' LIKE "%R%"' ;
+                                        $key_table = 'P4.'.$key;
+                                        if ($value == '%1%'){
+                                            $where .= ' AND '.$key_table.' LIKE "%R%"' ;
 
-                                            } else {
-                                                $where .= ' AND '.$key_table.' is null' ;
+                                        } else {
+                                            $where .= ' AND '.$key_table.' is null' ;
 
-                                            }
+                                        }
                                         break;
 
                                     }
@@ -483,6 +495,16 @@ class Asso_donation_dulan
                                     ];
 
                                     $reqprep->execute($prepare);
+
+                                    $reqprep2 = $this->bdd->prepare("SELECT MAX(don_id) from asso_donation");
+                                    $prepare2 = [];
+                                    $reqprep2->execute($prepare2);
+                                    $p_don_id = $reqprep2->fetch();
+
+                                    if($_POST["don_status"] == 'OK'){
+
+                                        (new \Manager\Receipt($this->bdd))->add(["don_id" =>$p_don_id[0],"type"=>"donation_dulan"]);
+                                    }
 
                                     switch ($_GET["from"]) {
                                         case 'get':

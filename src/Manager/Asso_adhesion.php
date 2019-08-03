@@ -27,11 +27,11 @@ class Asso_adhesion
                 "INSERT INTO
                 asso_adhesion
 
-                ( brk_id , cli_id , adhesion_mnt , ptyp_id, adhesion_ts  )
+                ( brk_id , cli_id , adhesion_mnt , ptyp_id, adhesion_ts , adhesion_status )
 
                 VALUES
 
-                ( :brk_id, :cli_id, :adhesion_mnt, :ptyp_id , :adhesion_ts)
+                ( :brk_id, :cli_id, :adhesion_mnt, :ptyp_id , :adhesion_ts, :adhesion_status)
 
                 "
 
@@ -43,10 +43,21 @@ class Asso_adhesion
                 ":cli_id" => htmlspecialchars($_POST['cli_id']),
                 ":adhesion_mnt"=> htmlspecialchars($_POST['adhesion_mnt']),
                 ":ptyp_id"=> htmlspecialchars($_POST['ptyp_id']),
-                ":adhesion_ts" => date('Y-m-d G:i:s')//, mktime(0, 0, 0, $_timestamp["M"], $_timestamp["D"], $_timestamp["Y"]))
+                ":adhesion_ts" => date('Y-m-d G:i:s'),//, mktime(0, 0, 0, $_timestamp["M"], $_timestamp["D"], $_timestamp["Y"]))
+                ":adhesion_status" => htmlspecialchars($_POST['adhesion_status']),
             ];
 
             $insert = $reqprep->execute($prepare);
+
+            $reqprep2 = $this->bdd->prepare("SELECT MAX(adhesion_id) from asso_adhesion");
+            $prepare2 = [];
+            $reqprep2->execute($prepare2);
+            $p_don_id = $reqprep2->fetch();
+
+            if($_POST["adhesion_status"] == 'OK'){
+
+                (new \Manager\Receipt($this->bdd))->add(["adhesion_id" =>$p_don_id[0],"type"=>"adhesion"]);
+            }
 
         }
     }
@@ -334,6 +345,16 @@ class Asso_adhesion
                                 ];
 
                                 $reqprep->execute($prepare);
+
+                                $reqprep2 = $this->bdd->prepare("SELECT MAX(adhesion_id) from asso_adhesion");
+                                $prepare2 = [];
+                                $reqprep2->execute($prepare2);
+                                $p_adhesion_id = $reqprep2->fetch();
+
+                                if($_POST["adhesion_status"] == 'OK'){
+
+                                    (new \Manager\Receipt($this->bdd))->add(["adhesion_id" =>$p_adhesion_id[0],"type"=>"adhesion"]);
+                                }
 
                                 switch ($_GET["from"]) {
 

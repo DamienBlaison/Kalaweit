@@ -95,9 +95,21 @@ class Table_without_pagination
         }
 
         $body .= '<td style = "width:135px;">';
+
+        if($print_access == false){
+
+
+
         $body .=    '<a style="margin-right:5px;" href="'.$this->update.$value[0].'&from='.$from.'" class="btn btn-primary" id="update_'.$value[0].'"><i class="fa fa-edit"></i></a>';
         $body .=    '<a style="margin-right:5px;"href="'.$this->delete.$value[0].'" class="btn btn-danger" id="delete_'.$value[0].'" onclick ="return confirm(\'Etes vous sur de vouloir supprimer cet enregistrement\')"><i class="fa  fa-trash"></i></a>';
 
+    } else {
+
+        $body .=    '<a style="margin-right:5px;" href="" class="btn btn-default" id="update_'.$value[0].'" disabled><i class="fa fa-edit"></i></a>';
+        $body .=    '<a style="margin-right:5px;"href="" class="btn btn-default" id="delete_'.$value[0].'" disabled><i class="fa  fa-trash"></i></a>';
+
+
+    }
 
         $bdd = (new \Manager\Connexion())->getBdd();
 

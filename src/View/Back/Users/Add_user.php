@@ -21,7 +21,7 @@ class Add_user
                 </div>
             </div>
         </div>
-        
+
         <?php
 
         require_once( __DIR__ .'/../Footer.php');

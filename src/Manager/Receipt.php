@@ -14,7 +14,7 @@ class Receipt
 
     public function add($p_don_id){
 
-        $type = key($p_don_id);
+        $type = $p_don_id["type"];
 
         if($type == 'adhesion'){
 
@@ -22,7 +22,7 @@ class Receipt
 
             $prepare = [
 
-                ":adhesion_id" => $p_don_id["adhesion"]
+                ":adhesion_id" => $p_don_id["adhesion_id"]
 
             ];
 
@@ -69,7 +69,7 @@ class Receipt
 
             $prepare = [
 
-                ":don_id" => $p_don_id["donation"]
+                ":don_id" => $p_don_id["don_id"]
 
             ];
 
@@ -124,8 +124,6 @@ class Receipt
                 break;
             }
 
-
-
             $rec_number = ($this->bdd->query($req));
 
             $receipt_number = $rec_number->fetch(\PDO::FETCH_NUM);
@@ -134,14 +132,11 @@ class Receipt
 
                 $max = explode('_',$receipt_number[0]);
 
-
                 $receipt_num = intval($max[3]);
-
 
             } else { $receipt_num = 1000; };
 
         }
-
 
         $insert = $this->bdd->prepare(" INSERT INTO asso_receipt (brk_id,cli_id,rec_ts,rec_year,rec_number,rec_mnt) VALUES (2,:cli_id,:rec_ts,:rec_year,:rec_number,:rec_mnt)");
 
@@ -183,28 +178,35 @@ class Receipt
 
         $return = $new_receipt->fetch(\PDO::FETCH_NUM);
 
-
-        if($type == 'adhesion'){
+        switch ($type) {
+            case 'adhesion':
 
             $reqprep3 = $this->bdd->prepare("INSERT INTO asso_receipt_adhesion (rec_id,adhesion_id) VALUES (:rec_id,:adhesion_id)");
 
             $prepare3 = [
                 ":rec_id" => $return[0],
-                ":adhesion_id" => $p_don_id["adhesion"]
+                ":adhesion_id" => $p_don_id["adhesion_id"]
             ];
 
+            $reqprep3->execute($prepare3);
 
-        } else {
+            (new \Controller\Back\Receipt())->get($return[0],"close","adhesion");
+            break;
+
+            default:
 
             $reqprep3 = $this->bdd->prepare("INSERT INTO asso_receipt_donation (rec_id,don_id) VALUES (:rec_id,:don_id)");
             $prepare3 = [
                 ":rec_id" => $return[0],
-                ":don_id" => $p_don_id["donation"]
+                ":don_id" => $p_don_id["don_id"]
             ];
 
-        }
+            $reqprep3->execute($prepare3);
 
-        $reqprep3->execute($prepare3);
+            (new \Controller\Back\Receipt())->get($return[0],"close",$type);
+
+            break;
+        }
 
         return $return;
 
@@ -454,7 +456,7 @@ class Receipt
                         $folder = explode('_',$receipt_name);
 
                         $file = __DIR__ .'/../../Ged/Receipt/R_'.$folder[1].'/'.$receipt_name;
-                        
+
                         unlink($file);
 
                     }

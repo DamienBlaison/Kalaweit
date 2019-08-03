@@ -6,8 +6,6 @@ class Receipt_annual_dashboard{
 
     function run(){
 
-        echo 'toto';
-
         include( __DIR__ .'/../../../config/config.php');
 
         if($config['host']['host'] == 'local'){

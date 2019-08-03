@@ -22,6 +22,7 @@ class Box_add
         $devise  = (new \Controller\Back\htmlElement\Form_group_select('ptyp_id',$payment_type,'','fa fa-internet-explorer',"ptyp_code"));
         $donator = (new \Controller\Back\htmlElement\Form_group_select('cli_id',$cli,$cli_id,'fa fa-user',"cli_identity" ));
         $status = (new \Controller\Back\htmlElement\Form_group_select('adhesion_status',$status,'','fa fa-user',"config" ));
+        $look = (new \Controller\Back\htmlElement\Form_group_input_span('search_member','fa fa-search'));
 
         $submit  = '';
         $submit .=                      '<div class="form-group">';
@@ -32,13 +33,14 @@ class Box_add
 
         $box_adhesion_content = [
             $donator->render(),
+            $look->render(),
             $adhesion_mnt->render(),
             $devise->render(),
             $status->render(),
             $submit
         ];
 
-        $col_md = [12,12,12,12,12];
+        $col_md = [11,1,12,12,12,12];
 
         $box_adhesion = (new \Controller\Back\htmlElement\Box('Ajouter une adhésion','box-primary',$box_adhesion_content,$col_md))->render();
 

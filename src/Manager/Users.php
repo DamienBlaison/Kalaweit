@@ -81,8 +81,6 @@ class Users
 
                 case 'Enregistrer':
 
-                echo '<script> alert("je suis bien ici");</script>';
-
                 $p_dir = '/Img/Avatar/';
                 $p_file_to_upload = 'avatar';
                 $p_extension = ['png','jpeg','jpg','gif','png'];
@@ -127,10 +125,9 @@ class Users
 
                     case 'Envoyer':
 
-                    require '../src/Kalaweit/Manager/Send_mail.php';
+                    require_once( __DIR__. '/../Manager/Send_mail.php');
 
                     $to = $this->get();
-
 
                     send_mail($to['user_email'],htmlspecialchars($_POST["subject"]),htmlspecialchars($_POST["mail_body"]));
 

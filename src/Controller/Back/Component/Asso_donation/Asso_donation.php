@@ -37,7 +37,7 @@ class Asso_donation
         $donator = (new \Controller\Back\htmlElement\Form_group_select('cli_id',$cli,$donation["cli_id"],'fa fa-user',"cli_identity" ));
         $cause     = (new \Controller\Back\htmlElement\Form_group_select('cau_id',$cau,$donation["cau_id"],'fa fa-paw',"cau_name" ));
         $status =  (new \Controller\Back\htmlElement\Form_group_select('don_status',$status_config,$donation["don_status"],'fa fa-check',"config" ));
-
+        $look = (new \Controller\Back\htmlElement\Form_group_input_span('search_member','fa fa-search'));
 
         $button  = '';
         $button .=                      '<div class="form-group">';
@@ -49,6 +49,7 @@ class Asso_donation
 
         $box_donation_content = [
             $donator->render(),
+            $look->render(),
             $cause->render(),
             $don_mnt->render(),
             $devise->render(),
@@ -58,7 +59,7 @@ class Asso_donation
 
         /* mise en forme des éléments à passer */
 
-        $col_md = [12,12,12,12,12,12];
+        $col_md = [11,1,12,12,12,12,12];
 
         /* instanciation du composant BOX dans lequel le detail des dons sera affiché */
 
@@ -67,7 +68,9 @@ class Asso_donation
         /* passage des composants de la vue */
 
         $param = [
+
             "box_donation"=>$box_donation,
+            
         ];
 
         return $param;

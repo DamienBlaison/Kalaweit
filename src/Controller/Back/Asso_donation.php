@@ -16,7 +16,6 @@ class Asso_donation
         $bdd = $bdd->getBdd();
 
 
-
         /* verification de la présence des données d'entrée et appel de la methode d'ajout du manager */
 
 
@@ -71,7 +70,7 @@ class Asso_donation
             "add_don"=>(new \Controller\Back\Component\Asso_donation\Asso_donation)->update()
         ];
 
-        return (new \View\Back\Asso_donation\Asso_donation)->update($p_render);
+        return (new \View\Back\Asso_donation\Asso_donation)->render_update($p_render);
 
     }
 

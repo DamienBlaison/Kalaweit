@@ -30,6 +30,8 @@ class Box_add
         $donator = (new \Controller\Back\htmlElement\Form_group_select('cli_id',$cli,$cli_id,'fa fa-user',"cli_identity" ));
         $status =  (new \Controller\Back\htmlElement\Form_group_select('don_status',$status,"",'fa fa-check',"config" ));
         $cause     = (new \Controller\Back\htmlElement\Form_group_select('cau_id',$cau,"",'fa fa-paw',"cau_name" ));
+        $look_member = (new \Controller\Back\htmlElement\Form_group_input_span('search_member','fa fa-search'));
+        $look_cause = (new \Controller\Back\htmlElement\Form_group_input_span('search_cause','fa fa-search'));
 
         $submit  = '';
         $submit .=                      '<div class="form-group">';
@@ -40,7 +42,9 @@ class Box_add
 
         $box_donation_content = [
             $donator->render(),
+            $look_member->render(),
             $cause->render(),
+            $look_cause->render(),
             $donation_mnt->render(),
             $devise->render(),
             $status->render(),
@@ -49,7 +53,7 @@ class Box_add
 
         /* mise en forme des éléments à passer */
 
-        $col_md = [12,12,12,12,12,12];
+        $col_md = [11,1,11,1,12,12,12,12];
 
         /* instanciation des composants BOX dans lequels les details des dons seront affichés */
 

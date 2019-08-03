@@ -20,37 +20,45 @@ class Asso_donation
     }
 
     function add(){
+
         if(isset($_POST["donation_mnt"])){
 
-        $reqprep = $this->bdd->prepare(
+            $reqprep = $this->bdd->prepare(
 
-            "INSERT INTO
-            asso_donation
+                "INSERT INTO
+                asso_donation
 
-            ( brk_id , cli_id , cau_id , don_mnt , ptyp_id, don_ts  )
+                ( brk_id , cli_id , don_mnt , ptyp_id, don_ts, cau_id ,don_status )
 
-            VALUES
+                VALUES
 
-            ( :brk_id, :cli_id, :cau_id, :don_mnt, :ptyp_id , :don_ts)
+                ( :brk_id, :cli_id, :donation_dulan_mnt, :ptyp_id , :donation_dulan_ts, :cau_id, :don_status)
 
-            "
+                "
+            );
 
-        );
+            $prepare = [
 
-        $prepare = [
+                ":brk_id" => 2,
+                ":cli_id" => htmlspecialchars($_POST['cli_id']),
+                ":donation_dulan_mnt"=> htmlspecialchars($_POST['donation_mnt']),
+                ":ptyp_id"=> htmlspecialchars($_POST['ptyp_id']),
+                ":donation_dulan_ts" => date('Y-m-d G:i:s'),
+                ":cau_id" => htmlspecialchars($_POST['cau_id']),
+                ":don_status" => htmlspecialchars($_POST['don_status'])
+            ];
 
-            ":brk_id" => 2,
-            ":cli_id" => htmlspecialchars($_POST['cli_id']),
-            ":cau_id" => htmlspecialchars($_POST['cau_id']),
-            ":don_mnt"=> htmlspecialchars($_POST['donation_mnt']),
-            ":ptyp_id"=> htmlspecialchars($_POST['ptyp_id']),
-            ":don_ts" => date('Y-m-d G:i:s')//, mktime(0, 0, 0, $_timestamp["M"], $_timestamp["D"], $_timestamp["Y"]))
-        ];
+            $insert = $reqprep->execute($prepare);
 
-        $insert = $reqprep->execute($prepare);
+            $reqprep2 = $this->bdd->prepare("SELECT MAX(don_id) from asso_donation");
+            $prepare2 = [];
+            $reqprep2->execute($prepare2);
+            $p_don_id = $reqprep2->fetch();
 
-        header("Location: /www/Kalaweit/asso_donation/add");
-        //($reqprep->errorInfo());
+            if($_POST["don_status"] == 'OK'){
+
+                (new \Manager\Receipt($this->bdd))->add(["don_id" =>$p_don_id[0],"type"=>"donation"]);
+            }
         }
     }
 
@@ -583,6 +591,16 @@ class Asso_donation
         ];
 
         $reqprep->execute($prepare);
+
+        $reqprep2 = $this->bdd->prepare("SELECT MAX(don_id) from asso_donation");
+        $prepare2 = [];
+        $reqprep2->execute($prepare2);
+        $p_don_id = $reqprep2->fetch();
+
+        if($_POST["don_status"] == 'OK'){
+
+            (new \Manager\Receipt($this->bdd))->add(["don_id" =>$p_don_id[0],"type"=>"donation"]);
+        }
 
         switch ($_GET["from"]) {
 

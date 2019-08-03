@@ -34,7 +34,7 @@ class Asso_donation_forest
         $devise  = (new \Controller\Back\htmlElement\Form_group_select('ptyp_id',$payment_type,$donation_forest["ptyp_id"],'fa fa-internet-explorer',"ptyp_code"));
         $donator = (new \Controller\Back\htmlElement\Form_group_select('cli_id',$cli,$donation_forest["cli_id"],'fa fa-user',"cli_identity" ));
         $status =  (new \Controller\Back\htmlElement\Form_group_select('don_status',$status_config,$donation_forest["don_status"],'fa fa-check',"config" ));
-
+        $look = (new \Controller\Back\htmlElement\Form_group_input_span('search_member','fa fa-search'));
 
         $button  = '';
         $button .=                      '<div class="form-group">';
@@ -46,15 +46,16 @@ class Asso_donation_forest
 
         $box_donation_forest_content = [
             $donator->render(),
+            $look->render(),
             $donation_forest_mnt->render(),
-            $status->render(),
             $devise->render(),
+            $status->render(),
             $button
         ];
 
         /* mise en forme des éléments à passer */
 
-        $col_md = [12,12,12,12,12];
+        $col_md = [11,1,12,12,12,12];
 
         /* instanciation du composant BOX dans lequel le detail des dons sera affiché */
 

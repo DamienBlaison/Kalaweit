@@ -12,13 +12,11 @@ class Asso_cause_info
         $asso_cause_info .=    '<div class="row">';
 
         $asso_cause_info .=       ' <div class="col-md-12">';
-        $asso_cause_info .=       ' <div class="col-md-12">';
         $asso_cause_info .=                 ($param["info_générale"])->render();
         $asso_cause_info .=       '</div>';
 
         $asso_cause_info .=       ' <div class="col-md-12">';
         $asso_cause_info .=                 ($param["autres_infos"])->render();
-        $asso_cause_info .=         '</div>';
         $asso_cause_info .=         '</div>';
 
         $asso_cause_info .=       ' <div id="card_gift" class="col-md-12">';

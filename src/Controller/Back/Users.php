@@ -31,7 +31,11 @@ class Users
 
         $bdd = (new \Manager\Connexion())->getBdd();
 
+
+
         include( __DIR__ .'/../../../config/config.php');
+
+
 
         $server = $config["host"]["host"];
         $host = $config["Connexion"][$server]["site"];
@@ -47,7 +51,7 @@ class Users
                 ((isset($_POST["user_first_name"]))&&($_POST['user_first_name'])!='')&&
                 ((isset($_POST["user_last_name"]))&&($_POST['user_last_name'])!='')&&
                 ((isset($_POST["user_email"]))&&($_POST['user_email'])!='')&&
-                ((isset($_POST["user_role"]))&&($_POST['user_role'])!='')
+                ((isset($_POST["user_roles"]))&&($_POST['user_roles'])!='')
 
 
                 )

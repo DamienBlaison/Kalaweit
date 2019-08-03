@@ -59,7 +59,7 @@ class Asso_donation_asso
             "add_don"=>(new \Controller\Back\Component\Asso_donation_asso\Asso_donation_asso)->update()
         ];
 
-        return (new \View\Back\Asso_donation_asso\Asso_donation_asso)->update($p_render);
+        return (new \View\Back\Asso_donation_asso\Asso_donation_asso)->render_update($p_render);
 
     }
 

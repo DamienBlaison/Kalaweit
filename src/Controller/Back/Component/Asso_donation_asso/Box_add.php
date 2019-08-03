@@ -28,6 +28,7 @@ class Box_add
         $devise  = (new \Controller\Back\htmlElement\Form_group_select('ptyp_id',$payment_type,'','fa fa-internet-explorer',"ptyp_code"));
         $donator = (new \Controller\Back\htmlElement\Form_group_select('cli_id',$cli,$cli_id,'fa fa-user',"cli_identity" ));
         $status =  (new \Controller\Back\htmlElement\Form_group_select('don_status',$status_config,"",'fa fa-check',"config" ));
+        $look = (new \Controller\Back\htmlElement\Form_group_input_span('search_member','fa fa-search'));
 
         $submit  = '';
         $submit .=                      '<div class="form-group">';
@@ -38,6 +39,7 @@ class Box_add
 
         $box_donation_content = [
             $donator->render(),
+            $look->render(),
             $donation_mnt->render(),
             $devise->render(),
             $status->render(),
@@ -46,7 +48,7 @@ class Box_add
 
         /* mise en forme des éléments à passer */
 
-        $col_md = [12,12,12,12,12];
+        $col_md = [11,1,12,12,12,12];
 
         /* instanciation des composants BOX dans lequels les details des dons seront affichés */
 

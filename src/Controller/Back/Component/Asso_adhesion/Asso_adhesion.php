@@ -28,6 +28,7 @@ class Asso_adhesion
     $devise  = (new \Controller\Back\htmlElement\Form_group_select('ptyp_id',$payment_type,$adhesion["ptyp_id"],'fa fa-internet-explorer',"ptyp_code"));
     $donator = (new \Controller\Back\htmlElement\Form_group_select('cli_id',$cli,$adhesion["cli_id"],'fa fa-user',"cli_identity" ));
     $status = (new \Controller\Back\htmlElement\Form_group_select('adhesion_status',$status,$adhesion["adhesion_status"],'fa fa-user',"config" ));
+    $look = (new \Controller\Back\htmlElement\Form_group_input_span('search_member','fa fa-search'));
 
     $button  = '';
     $button .=                      '<div class="form-group">';
@@ -37,13 +38,14 @@ class Asso_adhesion
 
     $box_adhesion_content = [
         $donator->render(),
+        $look->render(),
         $adhesion_mnt->render(),
         $devise->render(),
         $status->render(),
         $button
     ];
 
-    $col_md = [12,12,12,12,12];
+    $col_md = [11,1,12,12,12,12];
 
     $box_adhesion = (new \Controller\Back\htmlElement\Box('Modifier une adhésion','box-primary',$box_adhesion_content,$col_md))->render();
 

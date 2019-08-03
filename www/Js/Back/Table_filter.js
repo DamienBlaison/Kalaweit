@@ -26,7 +26,7 @@ let target = uri[3];
 
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            let open = '/Export_Excel/Export_'+target+'.xlsx';
+            let open = '/www/Export_Excel/Export_'+target+'.xlsx';
             console.log(open);
             window.location = open;
         }
