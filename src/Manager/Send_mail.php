@@ -25,7 +25,7 @@ function send_mail($p_to,$p_subject,$p_body){
     // 0 = off (for production use)
     // 1 = client messages
     // 2 = client and server messages
-    $mail->SMTPDebug = 2;
+    $mail->SMTPDebug = 0;
     //Set the hostname of the mail server
     $mail->Host = $mail_config["Host"];
     // use
