@@ -125,7 +125,7 @@ class Users
 
                     case 'Envoyer':
 
-                    require_once( __DIR__. '/../Manager/Send_mail.php');
+                    require_once( __DIR__. '/Send_mail.php');
 
                     $to = $this->get();
 

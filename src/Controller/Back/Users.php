@@ -105,7 +105,7 @@ class Users
         }
 
 
-    /* récupéraiton des elements de config a passer dans le formaulaire*/
+    /* récupéraiton des elements de config a passer dans le formulaire*/
 
     $gender = (new \Manager\Gender())->getAll();
     $lang  = (new \Manager\Cli_lang())->getAll();
