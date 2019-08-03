@@ -110,5 +110,9 @@ class Maintenance
 
     }
 
+    function upload_config(){
+        
+    }
+
 }
 ?>

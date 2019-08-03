@@ -108,8 +108,6 @@ class App_connexion
 
                 (new \Manager\Sso_token($_POST["login"],$token,$bdd))->add();
 
-
-
                 $p_body = "
                 <p>
                 Bonjour,
@@ -131,11 +129,11 @@ class App_connexion
 
                 ";
 
-                require_once(__DIR__ .'/../../Manager/Send_mail.php');
+                require( __DIR__ .'/../../Manager/Send_mail.php');
 
                 send_mail($p_to,$p_subject,$p_body);
 
-                header("Location: /www/Kalaweit/app_connexion/log_in");
+                //header("Location: /www/Kalaweit/app_connexion/log_in");
 
             }
 

@@ -30,7 +30,6 @@ class Asso_adhesion {
     echo '
 
     <script src="/Js/Back/Create_user.js"></script>
-    <script src="/Js/Back/Create_paw.js"></script>
     <script src="/Js/Back/Search_member_from_box_add.js"></script>
 
     ';
@@ -62,7 +61,6 @@ class Asso_adhesion {
     echo '
 
     <script src="/Js/Back/Create_user.js"></script>
-    <script src="/Js/Back/Create_paw.js"></script>
     <script src="/Js/Back/Search_member_from_box_add.js"></script>
 
     ';

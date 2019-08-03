@@ -7,3 +7,4 @@
 /Ged/Export_Excel/Export_*
 /ignore
 /config/config_server.php
+/config/config_mail.php
