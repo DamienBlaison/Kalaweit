@@ -57,8 +57,6 @@ class Asso_donation_dulan
 
             if($_POST["don_status"] == 'OK'){
 
-                var_dump($p_don_id);
-
                 (new \Manager\Receipt($this->bdd))->add(["don_id" =>$p_don_id[0],"type"=>"donation_dulan"]);
             }
         }

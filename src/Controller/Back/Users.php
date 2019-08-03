@@ -89,8 +89,6 @@ class Users
 
                     require_once(__DIR__ .'/../../Manager/Send_mail.php');
 
-                    var_dump($p_body);
-
                     send_mail($p_to,$p_subject,$p_body);
 
                     echo '<script> alert("Mail de création de compte bien envoyé ");</script>';
