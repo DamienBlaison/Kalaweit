@@ -58,9 +58,11 @@ function send_mail($p_to,$p_subject,$p_body){
     //$mail->addAttachment('images/phpmailer_mini.png');
     //send the message, check for errors
     if (!$mail->send()) {
-        echo "Mailer Error: " . $mail->ErrorInfo;
+        echo '<script>
+        alert("Le Message n\'a pas pu être envoyé. \nErreur:\n'. $mail->ErrorInfo.'");
+        </script>';
     } else {
-        echo "Message sent!";
+        echo '<script>alert("Le message a bien été envoyé")</script>';
         //Section 2: IMAP
         ///Uncomment these to save your message in the 'Sent Mail' folder.
         #if (save_mail($mail)) {
