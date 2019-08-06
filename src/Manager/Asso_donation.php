@@ -97,11 +97,32 @@ class Asso_donation
 
         $insert = $reqprep->execute($prepare);
 
-        $rerqprep2 = $this->bdd->prepare("SELECT MAX (don_id) From asso_donation");
+        $reqprep2 = $this->bdd->prepare("SELECT MAX(don_id) From asso_donation");
         $prepare2 = [];
         $reqprep2->execute($prepare2);
+
         $don_id = $reqprep2->fetch(\PDO::FETCH_NUM);
-        return $don_id[0];
+
+        if($status == 'OK'){
+
+            switch ($cau) {
+                case '703':
+                    $type = "donation_forest";
+                break;
+                case '704':
+                $type = "donation_asso";
+                break;
+                case '700':
+                $type = "donation_dulan";
+                break;
+                default:
+                $type = "donation";
+                break;
+            }
+
+            (new \Manager\Receipt($this->bdd))->add(["type"=>$type, "don_id" => $don_id[0]]);
+            
+        }
 
     }
 

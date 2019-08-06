@@ -62,6 +62,25 @@ $user = (new \Manager\Users($bdd))->get_id_from_Login($_SESSION['user_login']);
                 <ul class="sidebar-menu tree" data-widget="tree">
                     <li class="header">MENU
                     </li>
+
+                    <form action="/www/Kalaweit/member/list/1" method="get" class="sidebar-form">
+                        <div class="input-group">
+                            <input type="text" name="cli_lastname" class="form-control" placeholder="Rechercher un membre">
+                            <span class="input-group-btn">
+                                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </form>
+                    <form action="/www/Kalaweit/asso_cause/list/1" method="get" class="sidebar-form">
+                        <div class="input-group">
+                            <input type="text" name="cau_name" class="form-control" placeholder="Rechercher un gibbon">
+                            <span class="input-group-btn">
+                                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </form>
                     <li class=" active ">
 
                         <a href="/www/Kalaweit/dashboard/get">
@@ -147,52 +166,52 @@ $user = (new \Manager\Users($bdd))->get_id_from_Login($_SESSION['user_login']);
                         <a href="#"><i class="fa  fa-euro"></i> <span>Paiements et reçus</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
                         <ul class="treeview-menu">
                             <!--<li class="treeview"><a href="#"><i class="fa  fa-eur"></i> Gestion des paiements <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
-                                <ul class="treeview-menu">
-                                    <li><a href="monthly_deduction"><i class="fa fa-circle-o"></i> Les prélèvements mensuels</a></li>
-                                    <li><a href="payment_history"><i class="fa fa-circle-o"></i> Historique des prélèvements</a></li>
-                                </ul>
-                            </li>-->
-                            <li class="treeview"><a href="index3.html"><i class="fa fa-file-text"></i> Reçus Fiscaux <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
-                                <ul class="treeview-menu">
-                                    <li><a href="/www/Kalaweit/Receipt_annual_dashboard/dashboard"><i class="fa fa-circle-o"></i> Génération des reçus</a></li>
-                                </ul>
-                            </li>
+                            <ul class="treeview-menu">
+                            <li><a href="monthly_deduction"><i class="fa fa-circle-o"></i> Les prélèvements mensuels</a></li>
+                            <li><a href="payment_history"><i class="fa fa-circle-o"></i> Historique des prélèvements</a></li>
+                        </ul>
+                    </li>-->
+                    <li class="treeview"><a href="index3.html"><i class="fa fa-file-text"></i> Reçus Fiscaux <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                        <ul class="treeview-menu">
+                            <li><a href="/www/Kalaweit/Receipt_annual_dashboard/dashboard"><i class="fa fa-circle-o"></i> Génération des reçus</a></li>
                         </ul>
                     </li>
-                    <?php if($_SESSION["role"] == '1'){?>
-                        <li class=" treeview" style="border-left:3px solid #3c8dbc; ">
-                            <a href="#"><i class="fa  fa-cog"></i> <span>Administration</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
-                            <ul class="treeview-menu">
-                                <li class="treeview"><a href="#"><i class="fa  fa-users"></i> Gestion des utilisateurs <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
-                                    <ul class="treeview-menu">
-                                        <li><a href="/www/Kalaweit/users/add"><i class="fa fa-plus"></i> Ajouter un utilisateur</a></li>
-                                        <li><a href="/www/Kalaweit/users/list/1"><i class="fa fa-edit"></i> Modifier un utilisateur</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="/www/Kalaweit/maintenance/update"><i class="fa fa-wrench"></i>Maintenance</a>
-                                </li>
-                            </ul>
-                    </li>
-                    <?php
-                    } ?>
                 </ul>
-            </section>
-        </aside>
-        <div class="content-wrapper row" action="" method="post" style="min-height: 1100px;">
+            </li>
+            <?php if($_SESSION["role"] == '1'){?>
+                <li class=" treeview" style="border-left:3px solid #3c8dbc; ">
+                    <a href="#"><i class="fa  fa-cog"></i> <span>Administration</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                    <ul class="treeview-menu">
+                        <li class="treeview"><a href="#"><i class="fa  fa-users"></i> Gestion des utilisateurs <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                            <ul class="treeview-menu">
+                                <li><a href="/www/Kalaweit/users/add"><i class="fa fa-plus"></i> Ajouter un utilisateur</a></li>
+                                <li><a href="/www/Kalaweit/users/list/1"><i class="fa fa-edit"></i> Modifier un utilisateur</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/www/Kalaweit/maintenance/update"><i class="fa fa-wrench"></i>Maintenance</a>
+                        </li>
+                    </ul>
+                </li>
+                <?php
+            } ?>
+        </ul>
+    </section>
+</aside>
+<div class="content-wrapper row" action="" method="post" style="min-height: 1100px;">
 
 
 
 
 
-            <div class="" id="box-menu-mobile">
-                <div class="box-header with-border">
-                    <h3 id="h3-menu-mobile" class="box-title">Kalaweit Administration</h3>
-                    <div class="box-tools pull-right">
-                        <button id="show-menu" type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-bars"></i></button>
-                    </div>
-                </div>
-
-
-
-
+    <div class="" id="box-menu-mobile">
+        <div class="box-header with-border">
+            <h3 id="h3-menu-mobile" class="box-title">Kalaweit Administration</h3>
+            <div class="box-tools pull-right">
+                <button id="show-menu" type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-bars"></i></button>
+            </div>
         </div>
+
+
+
+
+    </div>

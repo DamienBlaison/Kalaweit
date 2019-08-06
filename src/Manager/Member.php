@@ -448,16 +448,18 @@ class Member
 
     function get_all(){
 
-        $reqprep = $this->bdd->query("SELECT cli_id,cli_lastname,cli_firstname,cli_cp,cli_town FROM crm_client ORDER BY cli_id LIMIT 0,15");
-        $reqprep->execute();
+        $reqprep = $this->bdd->prepare("SELECT cli_id,cli_lastname,cli_firstname,cli_cp,cli_town FROM crm_client ORDER BY cli_id LIMIT 0,15");
+        $prepare = [];
+        $reqprep->execute($prepare);
         $return = $reqprep->fetchAll(\PDO::FETCH_NUM);
         return $return;
     }
 
     function get_all_id(){
 
-        $reqprep = $this->bdd->query("SELECT cli_id FROM crm_client ORDER BY cli_id ");
-        $reqprep->execute();
+        $reqprep = $this->bdd->prepare("SELECT cli_id FROM crm_client ORDER BY cli_id");
+        $prepare = [];
+        $reqprep->execute($prepare);
         $return = $reqprep->fetchAll(\PDO::FETCH_NUM);
         return $return;
     }

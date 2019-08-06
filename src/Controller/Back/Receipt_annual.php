@@ -25,7 +25,7 @@ class Receipt_annual
         $ids = (new \Manager\Receipt_annual($bdd))->get_all_ids_to_receipt();
 
         $count = count($ids);
-        
+
         $nb_receipt_create = 0;
 
         (new \Manager\Receipt_annual($bdd))->create_counter($count);
