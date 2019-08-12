@@ -79,3 +79,5 @@ $mnt = rand(0,150);
 (new \Manager\Asso_donation($bdd))->add_random($ids[$key_id],704,$mnt,$status[$key_status],$year);
 
 }
+
+*/
