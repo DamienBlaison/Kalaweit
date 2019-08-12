@@ -42,12 +42,10 @@ class Box
             $box_content.= '<div class="col-md-'.$class.'">'.$value.'</div>';
         }
 
-        $box.='    <div class="box '.$this->box_statut.'">';
+        $box.='    <div id="'.str_replace(' ','_',$this->box_title).'"class="box '.$this->box_statut.'">';
         $box.='         <div class="box-header with-border">';
         $box.='             <h3 class="box-title">'.$this->box_title.'</h3>';
-        //$box.='         <div class="pull-right box-tools">';
-        //$box.='             <button type="button" class="btn btn-default btn-sm" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="Collapse"><i class="fa fa-minus"></i></button>';
-        //$box.='         </div>';
+
         $box.='         </div><!-- /.box-header -->';
 
         $box.='         <div class="box-body">';
@@ -56,6 +54,7 @@ class Box
 
         $box.='         </div><!-- /.box-body -->';
         $box.='    </div>';
+
 
         return $box;
     }

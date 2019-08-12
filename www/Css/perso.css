@@ -172,6 +172,9 @@ h4
 .mb20{
     margin-bottom:20px;
 }
+.mb40{
+    margin-bottom:40px;
+}
 
 .progress{
     height: 35px;
@@ -181,12 +184,21 @@ h4
     max-height: 500px;
     overflow: auto;
 }
+.result_import{
+    max-height: 250px;
+    overflow: auto;
+}
 .thead-dark{
-    background-color: black;
+    background-color: rgb(55, 72, 80);;
     color:white;
     overflow: auto;
 }
 
 textarea{
     resize:none;
+}
+
+tr:hover {
+    background-color : rgba(55,72,80,0.5) !important;
+    color:white;
 }

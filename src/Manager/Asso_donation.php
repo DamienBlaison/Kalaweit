@@ -62,6 +62,35 @@ class Asso_donation
         }
     }
 
+    function add_import_hello_asso($prepare){
+
+            $reqprep = $this->bdd->prepare(
+
+                "INSERT INTO
+                asso_donation
+
+                ( brk_id , cli_id , cau_id , don_mnt , ptyp_id, don_ts, don_status  )
+
+                VALUES
+
+                ( :brk_id, :cli_id, :cau_id, :don_mnt, :ptyp_id , :don_ts, :don_status)
+
+                "
+
+            );
+
+            $insert = $reqprep->execute($prepare);
+
+            $reqprep2 = $this->bdd->prepare("SELECT MAX(don_id) from asso_donation");
+            $prepare2 = [];
+            $reqprep2->execute($prepare2);
+            $p_don_id = $reqprep2->fetch();
+
+            (new \Manager\Receipt($this->bdd))->add(["don_id" =>$p_don_id[0],"type"=>"donation"]);
+
+
+    }
+
     function add_random($id,$cau,$mnt,$status,$year){
 
         $reqprep = $this->bdd->prepare(
@@ -97,11 +126,32 @@ class Asso_donation
 
         $insert = $reqprep->execute($prepare);
 
-        $rerqprep2 = $this->bdd->prepare("SELECT MAX (don_id) From asso_donation");
+        $reqprep2 = $this->bdd->prepare("SELECT MAX(don_id) From asso_donation");
         $prepare2 = [];
         $reqprep2->execute($prepare2);
+
         $don_id = $reqprep2->fetch(\PDO::FETCH_NUM);
-        return $don_id[0];
+
+        if($status == 'OK'){
+
+            switch ($cau) {
+                case '703':
+                    $type = "donation_forest";
+                break;
+                case '704':
+                $type = "donation_asso";
+                break;
+                case '700':
+                $type = "donation_dulan";
+                break;
+                default:
+                $type = "donation";
+                break;
+            }
+
+            (new \Manager\Receipt($this->bdd))->add(["type"=>$type, "don_id" => $don_id[0]]);
+
+        }
 
     }
 
@@ -288,7 +338,7 @@ class Asso_donation
         ");
 
         $prepare = [
-            ":cli_id" => htmlspecialchars($_GET['cli_id']),
+            ":cli_id" => htmlspecialchars($_SESSION['cli_id']),
         ];
 
         $reqprep->execute($prepare);

@@ -184,7 +184,7 @@ class Asso_adhesion
                         ");
 
                         $prepare = [
-                            ":cli_id" => htmlspecialchars($_GET['cli_id'])
+                            ":cli_id" => htmlspecialchars($_SESSION['cli_id'])
                         ];
 
                         $reqprep->execute($prepare);
@@ -624,5 +624,54 @@ class Asso_adhesion
                                 return $return ;
 
                                 }
+
+                                function add_random($id,$mnt,$status,$year){
+
+                                    $reqprep = $this->bdd->prepare(
+
+                                        "INSERT INTO
+                                        asso_adhesion
+
+                                        ( brk_id , cli_id , adhesion_mnt , ptyp_id, adhesion_ts ,adhesion_status )
+
+                                        VALUES
+
+                                        ( :brk_id, :cli_id, :adhesion_mnt, :ptyp_id , :adhesion_ts, :adhesion_status)
+
+                                        "
+
+                                    );
+
+                                    $min_stamp = mktime(0,0,0,1,1,$year);
+                                    $max_stamp = $min_stamp + (1546214400 - 1515715200);
+
+                                    $date = rand($min_stamp,$max_stamp);
+
+                                    $prepare = [
+
+                                        ":brk_id" => 2,
+                                        ":cli_id" => $id,
+                                        ":adhesion_mnt"=> $mnt,
+                                        ":adhesion_status"=> $status,
+                                        ":ptyp_id"=> 1,
+                                        ":adhesion_ts" => date('Y-m-d G:i:s',$date)//, mktime(0, 0, 0, $_timestamp["M"], $_timestamp["D"], $_timestamp["Y"]))
+                                    ];
+
+                                    $insert = $reqprep->execute($prepare);
+
+                                    $reqprep2 = $this->bdd->prepare("SELECT MAX(adhesion_id) From asso_adhesion");
+                                    $prepare2 = [];
+                                    $reqprep2->execute($prepare2);
+
+                                    $adhesion_id = $reqprep2->fetch(\PDO::FETCH_NUM);
+
+                                    if($status == 'OK'){
+
+                                        (new \Manager\Receipt($this->bdd))->add(["type"=> "adhesion", "adhesion_id" => $adhesion_id[0]]);
+
+                                    }
+
+                                }
+
 
                             }

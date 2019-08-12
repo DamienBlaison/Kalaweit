@@ -1,11 +1,17 @@
 <?php
 
 if(isset($_SESSION["cli_id"])){
-	$href = '/www/My_account?cli_id='.$_SESSION["cli_id"];
+	$href = '/www/My_account';
 	$name_nav_item = 'Mon Compte';
+	$deconnexion = '<li class="nav-item">
+						<a class="nav-link" href="/www/Deconnexion" id="deconnexion" role="button" >
+						Déconnexion
+						</a>
+					</li>';
 }else{
 	$href = '/www/Connexion';
 	$name_nav_item = 'Connexion';
+	$deconnexion = '';
 }
 ?>
 
@@ -74,6 +80,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 									<?php echo $name_nav_item ?>
 								</a>
 							</li>
+							<?php echo $deconnexion ?>
 						</ul>
 
 					</div>

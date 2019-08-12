@@ -49,7 +49,6 @@ class Table_requester
     $body .= '<tr role="row" class="odd">';
 
     foreach ($value as $k => $v) {
-
         $body .=    '<td style="">'.$v;
         $body .=    '</td>';
     }

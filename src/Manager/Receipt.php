@@ -42,7 +42,7 @@ class Receipt
 
             // indexation des numeros de recus
 
-            $suffixe = '_'.str_replace('/','-',$info_donator["cli_firstname"]).'_'.str_replace('/','-',$info_donator["cli_lastname"]);
+            $suffixe = '_'.str_replace(['/',' '],'_',$info_donator["cli_firstname"]).'_'.str_replace(['/',' '],'_',$info_donator["cli_lastname"]);
 
             $req = "SELECT MAX(rec_number) FROM asso_receipt WHERE rec_number LIKE '%R_adhesion%'";
 
@@ -55,7 +55,6 @@ class Receipt
             if($receipt_number[0] != NULL){
 
                 $max = explode('_',$receipt_number[0]);
-
 
                 $receipt_num = intval($max[3]);
 
@@ -74,6 +73,7 @@ class Receipt
             ];
 
             $recup_don_info->execute($prepare);
+
             $data = $recup_don_info->fetch(\PDO::FETCH_ASSOC);
 
             $recup_info_donator = $this->bdd->prepare("SELECT * FROM crm_client WHERE cli_id = :cli_id");
@@ -89,37 +89,39 @@ class Receipt
 
             // indexation des numeros de recus
 
-            $suffixe = '_'.str_replace('/','-',$info_donator["cli_firstname"]).'_'.str_replace('/','-',$info_donator["cli_lastname"]);
+            $suffixe = '_'.str_replace(['/',' '],'_',$info_donator["cli_firstname"]).'_'.str_replace(['/',' '],'_',$info_donator["cli_lastname"]);
+
+            $year = date('Y',strtotime($data["don_ts"]));
 
             switch ($data["cau_id"]) {
 
                 case '700':
 
-                $req = "SELECT MAX(rec_number) FROM asso_receipt WHERE rec_number LIKE '%R_dulan%'";
+                $req = "SELECT MAX(rec_number) FROM asso_receipt WHERE rec_number LIKE '%R_dulan%' AND rec_year = $year";
 
-                $prefixe = "R_dulan_".date('Y')."_";
+                $prefixe = "R_dulan_".date('Y',strtotime($data["don_ts"]))."_";
 
 
                 break;
 
                 case '703':
 
-                $req = "SELECT MAX(rec_number) from asso_receipt WHERE rec_number LIKE '%R_forest%' ";
-                $prefixe = "R_forest_".date('Y')."_";
+                $req = "SELECT MAX(rec_number) from asso_receipt WHERE rec_number LIKE '%R_forest%' AND rec_year = $year ";
+                $prefixe = "R_forest_".date('Y',strtotime($data["don_ts"]))."_";
 
                 break;
 
                 case '704':
 
-                $req = "SELECT MAX(rec_number) from asso_receipt WHERE rec_number LIKE '%R_asso%' ";
-                $prefixe = "R_asso_".date('Y')."_";
+                $req = "SELECT MAX(rec_number) from asso_receipt WHERE rec_number LIKE '%R_asso%' AND rec_year = $year ";
+                $prefixe = "R_asso_".date('Y',strtotime($data["don_ts"]))."_";
 
                 break;
 
                 default:
 
-                $req = "SELECT MAX(rec_number) from asso_receipt WHERE rec_number LIKE '%R_gibbon%' ";
-                $prefixe = "R_gibbon_".date('Y')."_";
+                $req = "SELECT MAX(rec_number) from asso_receipt WHERE rec_number LIKE '%R_gibbon%' AND rec_year = $year ";
+                $prefixe = "R_gibbon_".date('Y',strtotime($data["don_ts"]))."_";
 
                 break;
             }
@@ -151,7 +153,7 @@ class Receipt
 
                 ":cli_id" => $data["cli_id"],
                 ":rec_ts" => date('Y-m-d G:i:s'),
-                ":rec_year" => date('Y'),
+                ":rec_year" => date('Y',strtotime($data["adhesion_ts"])),
                 ":rec_number" => $rec_number,
                 ":rec_mnt" => $data["adhesion_mnt"]
             ];
@@ -161,7 +163,7 @@ class Receipt
 
                 ":cli_id" => $data["cli_id"],
                 ":rec_ts" => date('Y-m-d G:i:s'),
-                ":rec_year" => date('Y'),
+                ":rec_year" => $year,
                 ":rec_number" => $rec_number,
                 ":rec_mnt" => $data["don_mnt"]
             ];
@@ -284,6 +286,30 @@ class Receipt
 
 
             }
+            function name_receipt_annual(){
+
+                $reqprep = $this->bdd->prepare(
+                    "   SELECT
+
+                    asso_receipt.rec_number
+
+                    From asso_receipt
+
+                    WHERE asso_receipt.rec_number like 'R_fisc%' and rec_year = :year and cli_id = :cli_id
+
+                    ");
+
+                    $prepare = [
+                        ":cli_id" => $_GET["cli_id"],
+                        ":year" => date('Y')
+                    ];
+
+                    $reqprep->execute($prepare);
+
+                    return $return = $reqprep->fetch(\PDO::FETCH_ASSOC);
+
+                }
+
 
             function name_receipt_adhesion($id_adhesion){
 
@@ -465,7 +491,7 @@ class Receipt
 
                         $prepare = [":cli_id" => htmlspecialchars($_GET['cli_id'])];
 
-                        $reqprep = $this->bdd->prepare("SELECT rec_year,rec_number,rec_mnt FROM asso_receipt WHERE cli_id = :cli_id AND rec_number LIKE 'RF_%'");
+                        $reqprep = $this->bdd->prepare("SELECT rec_year,rec_number,rec_mnt FROM asso_receipt WHERE cli_id = :cli_id AND rec_number LIKE 'R_fisc%'");
 
                         $reqprep->execute($prepare);
 
@@ -505,8 +531,8 @@ class Receipt
 
                     function get_receipt_by_member_front(){
 
-                        $reqprep = $this->bdd->prepare("SELECT rec_id,rec_year,rec_number, rec_mnt FROM asso_receipt WHERE cli_id = :cli_id AND rec_number LIKE 'RF_%'");
-                        $prepare = ["cli_id" => htmlspecialchars($_GET["cli_id"])];
+                        $reqprep = $this->bdd->prepare("SELECT rec_id,rec_year,rec_number, rec_mnt FROM asso_receipt WHERE cli_id = :cli_id AND rec_number LIKE 'R_fisc%'");
+                        $prepare = ["cli_id" => htmlspecialchars($_SESSION["cli_id"])];
                         $reqprep->execute($prepare);
 
                         return  [

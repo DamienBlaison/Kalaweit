@@ -26,6 +26,13 @@ class Member_info
         $member_info .=            ($param["box_cli_data"])->render();
         $member_info .=       ' </div>';
 
+
+        $member_info .=        '<div class="col-md-12">';
+        $member_info .=            ($param["box_info_paiement"])->render();
+        $member_info .=       ' </div>';
+
+
+
         $member_info .=       ' <div class="col-md-12">';
         $member_info .=         ' <div class="col-md-6">';
         $member_info .=             $param["card4"];
@@ -44,7 +51,6 @@ class Member_info
         $member_info .=         ' </div>';
         $member_info .=       ' </div>';
 
-        $member_info .=       ' <div class="col-md-12">';
         $member_info .=            '<div class="col-md-12">';
         $member_info .=                ($param["box_cli_comment"])->render();
         $member_info .=            '</div>';
@@ -58,7 +64,7 @@ class Member_info
         $member_info .=               ' <a href="/www/Kalaweit/dashboard/get"><button type="button" class="btn btn-block btn-danger  ">Annuler</button></a>';
         $member_info .=            '</div>';
         $member_info .=        '</div>';
-        $member_info .=    '</div>';
+
         $member_info .='</form>';
 
         return $member_info;

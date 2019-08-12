@@ -35,6 +35,8 @@ class Member_info
                     $desc_member    = $memberM->add($member);
         } else {
                     $desc_member    = $memberM->get($member,$_GET['cli_id']);
+                    $paypal_id ='test';
+                    $hello_asso_id ='test';
         };
 
         /* initialisation des compsants HTML */
@@ -86,6 +88,15 @@ class Member_info
 
         $box_cli_data           = new \Controller\Back\htmlElement\Box('Coordonnées','box-primary',$box_cli_data_content,[12,12,12,4,8,12,6,6,12]);
 
+        /* ID paiement*/
+
+        $paypal_id            = new \Controller\Back\htmlElement\Form_group_input('clitd_7','Identifiant Paypal',$desc_member['clitd_7'],'fa fa-paypal');
+        $hello_asso_id        = new \Controller\Back\htmlElement\Form_group_input('clitd_8','Identifiant Hello asso',$desc_member['clitd_8'],'fa fa-header');
+
+        $box_info_paiement     = new \Controller\Back\htmlElement\Box('Identifiant site de paiement','box-primary',[$paypal_id->render(),$hello_asso_id->render()],[6,6]);
+
+
+
         /* commentaires */
 
         $cli_comment            = new \Controller\Back\htmlElement\Form_group_textarea('clitd_4',$desc_member['clitd_4']);
@@ -116,6 +127,7 @@ class Member_info
             "box_info_donator"  => $box_info_donator,
             "box_other_info"    => $box_other_info,
             "box_cli_data"      => $box_cli_data,
+            "box_info_paiement" => $box_info_paiement,
             "box_cli_comment"   => $box_cli_comment,
             "card1"             => $card1,
             "card2"             => $card2,

@@ -8,7 +8,7 @@ class Receipt_annual_dashboard{
 
         include( __DIR__ .'/../../../config/config.php');
 
-        if($config['host']['host'] == 'local'){
+        if($config['host']['host'] == 'localhost'){
 
         exec("cd /Users/damienblaison/Desktop/kalaweit/src/Controller/Back ; php Receipt_annual_generation.php > /dev/null &");
 

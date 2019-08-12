@@ -127,19 +127,22 @@ class Table
 
                     $bdd = (new \Manager\Connexion())->getBdd();
 
-                    if($this->id == "adhesion_by_member"){
+                    switch ($this->id) {
+                        case 'adhesion_by_member':
+                            $name_receipt = (new \Manager\Receipt($bdd))->name_receipt_adhesion($value[0]);
+                        break;
 
-                        $name_receipt = (new \Manager\Receipt($bdd))->name_receipt_adhesion($value[0]);
+                        case 'Receipt_annual':
+                            $name_receipt = (new \Manager\Receipt($bdd))->name_receipt_annual();
 
-                    } else {
+                        break;
 
-                        $name_receipt = (new \Manager\Receipt($bdd))->name_receipt($value[0]);
-
+                        default:
+                            $name_receipt = (new \Manager\Receipt($bdd))->name_receipt($value[0]);
+                        break;
                     }
 
-
                     $body .= '<td style = "width : 135px;">';
-
 
                     if($name_receipt != NULL  && $print_access == true){
 
@@ -157,16 +160,16 @@ class Table
 
                         if( $name_receipt != NULL){
 
-                            $body .=    '<a href="/www/Receipt/'.$name_receipt["rec_number"].'.pdf" style="margin-right:5px;" class="btn btn-success" id="print_'.$value[0].'" ><i class="fa fa-print"></i></a>';
+                            $body .=  '<a href="/www/Receipt/'.$name_receipt["rec_number"].'.pdf" style="margin-right:5px;" class="btn btn-success" id="print_'.$value[0].'" ><i class="fa fa-print"></i></a>';
 
                         } else {
 
-                            $body .=    '<a href="'.$this->print.$value[0].'" style="margin-right:5px;" class="btn btn-warning" id="print_'.$value[0].'" ><i class="fa fa-print"></i></a>';
+                            $body .=  '<a href="'.$this->print.$value[0].'" style="margin-right:5px;" class="btn btn-warning" id="print_'.$value[0].'" ><i class="fa fa-print"></i></a>';
                         }
 
                     } else {
 
-                        $body .=    '<a href="#"  style="margin-right:5px;" class="btn btn-default" id="print_'.$value[0].'" disabled=disabled ><i class="fa fa-print"></i></a>';
+                        $body .=   '<a href="#"  style="margin-right:5px;" class="btn btn-default" id="print_'.$value[0].'" disabled=disabled ><i class="fa fa-print"></i></a>';
                     }
 
 

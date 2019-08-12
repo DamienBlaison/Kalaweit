@@ -23,43 +23,20 @@ class Member_receipt_annual
 
         $p_data = (new \Manager\Receipt($bdd))->get_receipt_annual_by_member($p_nb_by_page,$page);
 
-        $check_rf = 0;
-
-        foreach ($p_data["content"]as $key => $value) {
-
-            if ($value[0] === date('Y')) { $check_rf += 1; }
-            // code...
-        };
+        //$check_rf = 0;
 
 
         /* initialisation des paramètres nécessaire à la composition de la vue du composant Table */
 
         $receipt_resume = (new \Manager\Receipt($bdd))->resume_donations_year_by_member($_GET["cli_id"]);
 
-        $p_name = "Receipt_annual";
+        $p_name = "Recus Fiscaux";
         $p_id = "Receipt_annual";
         $p_update = "";
         $p_delete = "";
         $p_print = "/www/Kalaweit/www/Receipt/";
-
-        if($receipt_resume[0]["sum(don_mnt)"] == NULL){
-
-                $p_add = substr($_SERVER['REQUEST_URI'],1);
-
-        } else {
-
-            if($check_rf != 0){
-
-                $p_add = substr($_SERVER['REQUEST_URI'],1);
-
-            } else {
-
-            $p_add = "www/Kalaweit/Receipt_annual/add?cli_id=".$_GET["cli_id"];
-
-            }
-        }
-
-        $p_position_status = 3;
+        $p_add="#";
+        $p_position_status = 'NO';
 
 
         /* Instanciation et application de le methode render de l'objet Table */

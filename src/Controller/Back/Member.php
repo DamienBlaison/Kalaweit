@@ -24,7 +24,7 @@ class Member
 
         "content_tab3" => $content_tab3 = (new  \Controller\Back\Component\Member\Member_receipt_annual)->render(),
 
-        "content_tab4" => $content_tab4 = (new \Controller\Back\Component\Member\Member_send_mail)->render()
+        "content_tab4" => $content_tab4 = (new \Controller\Back\Component\Member\Member_send_mail)->render(),
 
     ];
 

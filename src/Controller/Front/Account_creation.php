@@ -23,7 +23,11 @@ class Account_creation
             $check = $memberM->check_account();
 
             if($check == true){
-                $memberM->add($member);
+
+                $cli_id = $memberM->add($member);
+
+                header('location: /www/My_account?cli_id='.$cli_id);
+
             }
         }
 

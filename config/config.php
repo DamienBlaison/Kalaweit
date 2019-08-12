@@ -113,5 +113,12 @@ return  $config = [
     'role' => [
         '0' => 'User',
         '1' => 'Admin'
+    ],
+
+    'donation_type' =>[
+        'Gibonn' => 'Gibbon',
+        'Dulan' => 'Dulan',
+        'Forest' => 'Forêt',
+        'Asso' => 'Asso'
     ]
 ];

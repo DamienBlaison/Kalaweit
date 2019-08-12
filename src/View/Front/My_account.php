@@ -103,7 +103,7 @@ class My_account
     </div>
 
     <script src="/Js/Front/My_account.js"></script>
-    
+
     <?php
     include("Footer.php");
 

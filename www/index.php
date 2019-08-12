@@ -1,6 +1,7 @@
 <?php
 
 include ('./../vendor/autoload.php');
+
 ini_set('date.timezone', 'Europe/Berlin');
 
 
@@ -19,7 +20,6 @@ ini_set('display_errors', 'On');
 //ini_set('max_execution_time','3600000');
 
 //phpinfo();
-
 
 /**
  * Récupération de la configuration

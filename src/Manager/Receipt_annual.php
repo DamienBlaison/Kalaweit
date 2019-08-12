@@ -32,7 +32,7 @@ class Receipt_annual
         $mois = array('','janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre');
         $jours = array('dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi');
 
-        $suffixe = '_'.str_replace('/','-',$cli_info["cli_firstname"]).'_'.str_replace('/','-',$cli_info["cli_lastname"]);
+        $suffixe = '_'.str_replace(['/',' '],'-',$cli_info["cli_firstname"]).'_'.str_replace(['/',' '],'-',$cli_info["cli_lastname"]);
 
         $req = "SELECT MAX(rec_number) FROM asso_receipt WHERE rec_number LIKE 'R_fisc_%'";
 
@@ -50,7 +50,7 @@ class Receipt_annual
 
         } else { $receipt_num = 1000; };
 
-        $check = $this->bdd->prepare(" SELECT rec_number From asso_receipt WHERE cli_id = :cli_id");
+        $check = $this->bdd->prepare(" SELECT rec_number From asso_receipt WHERE cli_id = :cli_id AND rec_number LIKE 'R_fisc%'");
 
         $prepare_check = [":cli_id"=> htmlspecialchars($check_id)];
 

@@ -20,6 +20,7 @@ class Asso_donation_asso
     }
 
     function add(){
+
         if(isset($_POST["donation_mnt"])){
 
             $reqprep = $this->bdd->prepare(
@@ -61,6 +62,36 @@ class Asso_donation_asso
             }
 
         }
+    }
+
+    function add_import_hello_asso($prepare){
+
+            $reqprep = $this->bdd->prepare(
+
+                "INSERT INTO
+                asso_donation
+
+                ( brk_id , cli_id , cau_id , don_mnt , ptyp_id, don_ts, don_status  )
+
+                VALUES
+
+                ( :brk_id, :cli_id, :cau_id, :don_mnt, :ptyp_id , :don_ts, :don_status)
+
+                "
+
+            );
+
+            $insert = $reqprep->execute($prepare);
+
+            $reqprep2 = $this->bdd->prepare("SELECT MAX(don_id) from asso_donation");
+            $prepare2 = [];
+            $reqprep2->execute($prepare2);
+            $p_don_id = $reqprep2->fetch();
+
+            (new \Manager\Receipt($this->bdd))->add(["don_id" =>$p_don_id[0],"type"=>"donation_asso"]);
+
+
+
     }
 
     function get_last(){
@@ -236,7 +267,7 @@ class Asso_donation_asso
                         ");
 
                         $prepare = [
-                            ":cli_id" => htmlspecialchars($_GET['cli_id']),
+                            ":cli_id" => htmlspecialchars($_SESSION['cli_id']),
                         ];
 
                         $reqprep->execute($prepare);
@@ -542,14 +573,15 @@ class Asso_donation_asso
 
                                             $reqprep->execute($prepare);
 
-                                            $reqprep2 = $this->bdd->prepare("SELECT MAX(don_id) from asso_donation");
-                                            $prepare2 = [];
-                                            $reqprep2->execute($prepare2);
-                                            $p_don_id = $reqprep2->fetch();
+                                            //$reqprep2 = $this->bdd->prepare("SELECT MAX(don_id) from asso_donation");
+                                            //$prepare2 = [];
+                                            //$reqprep2->execute($prepare2);
+                                            //$p_don_id = $reqprep2->fetch();
+
 
                                             if($_POST["don_status"] == 'OK'){
 
-                                                (new \Manager\Receipt($this->bdd))->add(["don_id" =>$p_don_id[0],"type"=>"donation_asso"]);
+                                                (new \Manager\Receipt($this->bdd))->add(["don_id" => htmlspecialchars($_GET["don_id"]),"type"=>"donation_asso"]);
                                             }
 
                                             switch ($_GET["from"]) {

@@ -266,10 +266,9 @@ class Member
                 $reqprep_data->execute($prepare_data);
             }
 
-            $redirect = "Location: /www/Kalaweit/member/get?cli_id=".$id_client;
+            $_SESSION["cli_id"] = $id_client;
 
-
-            //header($redirect);
+            return $id_client;
 
         }
 
@@ -401,7 +400,9 @@ class Member
             D2.cld_valc as clitd_2,
             D3.cld_valc as clitd_3,
             D4.cld_valc as clitd_4,
-            D6.cld_valc as clitd_6
+            D6.cld_valc as clitd_6,
+            D7.cld_valc as clitd_7,
+            D8.cld_valc as clitd_8
 
             FROM crm_client
 
@@ -410,6 +411,8 @@ class Member
             LEFT JOIN crm_client_data as D3 on D3.cli_id = crm_client.cli_id and D3.clitd_id = 3
             LEFT JOIN crm_client_data as D4 on D4.cli_id = crm_client.cli_id and D4.clitd_id = 4
             LEFT JOIN crm_client_data as D6 on D6.cli_id = crm_client.cli_id and D6.clitd_id = 6
+            LEFT JOIN crm_client_data as D7 on D7.cli_id = crm_client.cli_id and D7.clitd_id = 7
+            LEFT JOIN crm_client_data as D8 on D8.cli_id = crm_client.cli_id and D8.clitd_id = 8
 
             WHERE crm_client.cli_id = :cli_id
 
@@ -448,16 +451,18 @@ class Member
 
     function get_all(){
 
-        $reqprep = $this->bdd->query("SELECT cli_id,cli_lastname,cli_firstname,cli_cp,cli_town FROM crm_client ORDER BY cli_id LIMIT 0,15");
-        $reqprep->execute();
+        $reqprep = $this->bdd->prepare("SELECT cli_id,cli_lastname,cli_firstname,cli_cp,cli_town FROM crm_client ORDER BY cli_id LIMIT 0,15");
+        $prepare = [];
+        $reqprep->execute($prepare);
         $return = $reqprep->fetchAll(\PDO::FETCH_NUM);
         return $return;
     }
 
     function get_all_id(){
 
-        $reqprep = $this->bdd->query("SELECT cli_id FROM crm_client ORDER BY cli_id ");
-        $reqprep->execute();
+        $reqprep = $this->bdd->prepare("SELECT cli_id FROM crm_client ORDER BY cli_id");
+        $prepare = [];
+        $reqprep->execute($prepare);
         $return = $reqprep->fetchAll(\PDO::FETCH_NUM);
         return $return;
     }
@@ -516,6 +521,22 @@ class Member
         $reqprep1->execute($prepare1);
         $reqprep2->execute($prepare2);
 
+    }
+
+    function get_id_member_import_paypal($cld_valc){
+        $reqprep = $this->bdd->prepare(" SELECT crm_client.cli_id FROM crm_client LEFT JOIN crm_client_data as D7 on D7.cli_id = crm_client.cli_id and D7.clitd_id = 7 WHERE D7.cld_valc = :cld_valc");
+        $prepare = [":cld_valc" => $cld_valc];
+        $reqprep->execute($prepare);
+
+        return $reqprep->fetch();
+    }
+
+    function get_id_member_import_hello_asso($cld_valc){
+        $reqprep = $this->bdd->prepare(" SELECT crm_client.cli_id FROM crm_client LEFT JOIN crm_client_data as D8 on D8.cli_id = crm_client.cli_id and D8.clitd_id = 8 WHERE D8.cld_valc = :cld_valc");
+        $prepare = [":cld_valc" => $cld_valc];
+        $reqprep->execute($prepare);
+
+        return $reqprep->fetch();
     }
 
 }

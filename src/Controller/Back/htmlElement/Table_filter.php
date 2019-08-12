@@ -228,25 +228,27 @@ class Table_filter
                     }
 
                     $table .= '<td style = "width:140px; text-align:center;">';
-                    $table .=    '<a style="margin-right:5px;" href="'.$update.$d_v[0].'" class="btn btn-primary" id="update_'.$d_v[0].'"><i class="fa fa-edit"></i></a>';
 
-                    $table .=    '<a style="margin-right:5px;" href="'.$delete.$d_v[0].'" class="btn btn-danger" id="delete_'.$d_v[0].'" onclick ="return confirm(\'Etes vous sur de vouloir supprimer cet enregistrement? \')"><i class="fa  fa-trash"></i></a>';
-
-
-                    if($url[3] == 'asso_donation' || $url[3] == 'asso_donation_dulan' || $url[3] == 'asso_donation_forest' || $url[3] == 'asso_donation_asso'){
+                    if($url[3] == 'asso_donation' || $url[3] == 'asso_donation_dulan' || $url[3] == 'asso_donation_forest' || $url[3] == 'asso_donation_asso' ||$url[3] == 'asso_adhesion'){
 
                         $file = $receipt.'.pdf';
 
-                        if($print_access == false) { $table .=    '<a href="" style="margin-right:5px;" class="btn btn-default" id="print_'.$d_v[0].'" ><i class="fa fa-print"></i></a>'; } else {
+                        if($print_access == false) {
 
-                            if($receipt != NULL){
+                            $table .=    '<a style="margin-right:5px;" href="'.$update.$d_v[0].'" class="btn btn-primary" id="update_'.$d_v[0].'"><i class="fa fa-edit"></i></a>';
 
-                                $table .=    '<a href="/www/Receipt/'.$file.'" target="_blank" style="margin-right:5px;" class="btn btn-success" id="print_'.$d_v[0].'" ><i class="fa fa-print"></i></a>';
+                            $table .=    '<a style="margin-right:5px;" href="'.$delete.$d_v[0].'" class="btn btn-danger" id="delete_'.$d_v[0].'" onclick ="return confirm(\'Etes vous sur de vouloir supprimer cet enregistrement? \')"><i class="fa  fa-trash"></i></a>';
 
-                            } else {
+                            $table .=    '<a href="" style="margin-right:5px;" class="btn btn-default" disabled id="print_'.$d_v[0].'" ><i class="fa fa-print"></i></a>';
 
-                                $table .=    '<a href="/www/Kalaweit/Receipt/add?don_id='.$d_v[0].'" style="margin-right:5px;" class="btn btn-warning" id="print_'.$d_v[0].'" ><i class="fa fa-print"></i></a>';
-                            }
+
+                        } else {
+
+                            $table .=    '<a style="margin-right:5px;" href="" class="btn btn-default" disabled "><i class="fa fa-edit"></i></a>';
+
+                            $table .=    '<a style="margin-right:5px;" href="" class="btn btn-default" disabled id="delete_'.$d_v[0].'" ><i class="fa  fa-trash"></i></a>';
+
+                            $table .=    '<a href="/www/Receipt/'.$file.'" target="_blank" style="margin-right:5px;" class="btn btn-success" id="print_'.$d_v[0].'" ><i class="fa fa-print"></i></a>';
 
                         }
                     }
@@ -257,7 +259,12 @@ class Table_filter
 
                             $file = $receipt.'.pdf';
 
-                            if($print_access == false) { $table .=    '<a href="" style="margin-right:5px;" class="btn btn-default" id="print_'.$d_v[0].'" ><i class="fa fa-print"></i></a>'; } else {
+                            if($print_access == false)
+
+                            {
+                                $table .=    '<a href="" style="margin-right:5px;" class="btn btn-default" id="print_'.$d_v[0].'" ><i class="fa fa-print"></i></a>'; }
+
+                            else {
 
                                 if($receipt != NULL){
 
@@ -267,10 +274,20 @@ class Table_filter
 
                                     $table .=    '<a href="/www/Kalaweit/Receipt/add?adhesion_id='.$d_v[0].'" style="margin-right:5px;" class="btn btn-warning" id="print_'.$d_v[0].'" ><i class="fa fa-print"></i></a>';
                                 }
+
+
                             }
+                        } else {
+
+                            $table .=    '<a style="margin-right:5px;" href="'.$update.$d_v[0].'" class="btn btn-primary" id="update_'.$d_v[0].'"><i class="fa fa-edit"></i></a>';
+
+                            $table .=    '<a style="margin-right:5px;" href="'.$delete.$d_v[0].'" class="btn btn-danger" id="delete_'.$d_v[0].'" onclick ="return confirm(\'Etes vous sur de vouloir supprimer cet enregistrement? \')"><i class="fa  fa-trash"></i></a>';
+
                         }
 
                     }
+
+
 
 
 

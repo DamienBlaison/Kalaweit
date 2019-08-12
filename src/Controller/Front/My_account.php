@@ -19,9 +19,9 @@
             $member         = new \Model\Member();
             $memberM        = new \Manager\Member($bdd);
 
-            if(isset($_POST)){$memberM->update($member,htmlspecialchars($_GET['cli_id'])); }
+            if(isset($_POST)){$memberM->update($member,htmlspecialchars($_SESSION['cli_id'])); }
 
-            $desc_member    = $memberM->get($member,htmlspecialchars($_GET['cli_id']));
+            $desc_member    = $memberM->get($member,htmlspecialchars($_SESSION['cli_id']));
 
             $aside = (new \View\Front\Aside())->render();
 

@@ -21,7 +21,7 @@ class Form_group_btn{
     public function render(){
 
     $form_group_btn  =  '<div>';
-    $form_group_btn .=     '<input type="'.$this->type.'" class="'.$this->class.'" value="'.$this->value.'" name="'.$this->name.'">';
+    $form_group_btn .=     '<input id="'.$this->name.'" type="'.$this->type.'" class="'.$this->class.'" value="'.$this->value.'" name="'.$this->name.'">';
     $form_group_btn .=  '</div>';
 
     return $form_group_btn;
