@@ -369,7 +369,7 @@ class Member
 
         $set = rtrim($set,", ");
 
-        $prepare =  array_merge($array_param_post["array_param_post_cli"]["p_prepare_cli"],[":cli_id"=> $_POST['cli_id']]);
+        $prepare =  array_merge($array_param_post["array_param_post_cli"]["p_prepare_cli"],[":cli_id"=> $_GET['cli_id']]);
 
         $reqprep = $this->bdd->prepare("UPDATE crm_client SET $set WHERE cli_id = :cli_id");
 
@@ -383,7 +383,7 @@ class Member
 
             $reqprep_check_data_prepare = [
                 ":clitd_id" => $value["clitd_id"],
-                ":cli_id" => $_POST["cli_id"]
+                ":cli_id" => $_GET["cli_id"]
             ];
 
             $reqprep_check_data->execute($reqprep_check_data_prepare);
@@ -394,7 +394,7 @@ class Member
                 $reqprep_data_insert = $this->bdd->prepare("INSERT INTO crm_client_data (cli_id, clitd_id, cld_valc) VALUES (:id_client, :clitd_id, :cld_valc)");
                 $prepare_data_insert = [
 
-                    ":id_client" =>  $_POST["cli_id"],
+                    ":id_client" =>  $_GET["cli_id"],
                     ":clitd_id"  => $value["clitd_id"],
                     ":cld_valc"  => $value["cld_valc"]
                 ];
