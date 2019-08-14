@@ -504,17 +504,18 @@ class Asso_donation_dulan
 
                                         SET
                                         cli_id     = :cli_id,
+                                        cau_id =  :cau_id,
                                         don_mnt    = :don_mnt,
                                         ptyp_id    = :ptyp_id,
                                         don_status = :don_status
 
-                                        WHERE   cau_id = '700'
-                                        AND     don_id = :don_id "
+                                        WHERE  don_id = :don_id "
                                     );
 
                                     $prepare = [
                                         ":cli_id" => htmlspecialchars($_POST["cli_id"]),
                                         ":don_mnt" => htmlspecialchars($_POST["donation_dulan_mnt"]),
+                                        ":cau_id" => 700,
                                         ":ptyp_id" => htmlspecialchars($_POST["ptyp_id"]),
                                         ":don_id" => htmlspecialchars($_GET["don_id"]),
                                         "don_status" => htmlspecialchars($_POST["don_status"])
@@ -522,14 +523,9 @@ class Asso_donation_dulan
 
                                     $reqprep->execute($prepare);
 
-                                    $reqprep2 = $this->bdd->prepare("SELECT MAX(don_id) from asso_donation");
-                                    $prepare2 = [];
-                                    $reqprep2->execute($prepare2);
-                                    $p_don_id = $reqprep2->fetch();
-
                                     if($_POST["don_status"] == 'OK'){
 
-                                        (new \Manager\Receipt($this->bdd))->add(["don_id" =>$p_don_id[0],"type"=>"donation_dulan"]);
+                                        (new \Manager\Receipt($this->bdd))->add(["don_id" =>htmlspecialchars($_GET["don_id"]),"type"=>"donation_dulan"]);
                                     }
 
                                     switch ($_GET["from"]) {

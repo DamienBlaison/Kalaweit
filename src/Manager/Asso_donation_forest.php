@@ -515,10 +515,10 @@ class Asso_donation_forest
                                 cli_id     = :cli_id,
                                 don_mnt    = :don_mnt,
                                 ptyp_id    = :ptyp_id,
-                                don_status = :don_status
+                                don_status = :don_status,
+                                cau_id = :cau_id
 
-                                WHERE   cau_id = '703'
-                                AND     don_id = :don_id "
+                                WHERE  don_id = :don_id "
                             );
 
                             $prepare = [
@@ -526,19 +526,15 @@ class Asso_donation_forest
                                 ":don_mnt" => htmlspecialchars($_POST["donation_forest_mnt"]),
                                 ":ptyp_id" => htmlspecialchars($_POST["ptyp_id"]),
                                 ":don_id" => htmlspecialchars($_GET["don_id"]),
+                                ":cau_id" => 703,
                                 ':don_status' => htmlspecialchars($_POST["don_status"])
                             ];
 
                             $reqprep->execute($prepare);
 
-                            $reqprep2 = $this->bdd->prepare("SELECT MAX(don_id) from asso_donation");
-                            $prepare2 = [];
-                            $reqprep2->execute($prepare2);
-                            $p_don_id = $reqprep2->fetch();
-
                             if($_POST["don_status"] == 'OK'){
 
-                                (new \Manager\Receipt($this->bdd))->add(["don_id" =>$p_don_id[0],"type"=>"donation_forest"]);
+                                (new \Manager\Receipt($this->bdd))->add(["don_id" => htmlspecialchars($_GET["don_id"]),"type" => "donation_forest"]);
                             }
 
                             switch ($_GET["from"]) {

@@ -17,7 +17,7 @@ class Asso_donation_dulan
 
         if(isset($_POST["cli_id"])) {
 
-            (new \Manager\Asso_donation_dulan($bdd))->update();
+            var_dump((new \Manager\Asso_donation_dulan($bdd))->update());
 
         }
 

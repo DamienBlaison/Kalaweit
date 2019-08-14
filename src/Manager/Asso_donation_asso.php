@@ -573,12 +573,6 @@ class Asso_donation_asso
 
                                             $reqprep->execute($prepare);
 
-                                            //$reqprep2 = $this->bdd->prepare("SELECT MAX(don_id) from asso_donation");
-                                            //$prepare2 = [];
-                                            //$reqprep2->execute($prepare2);
-                                            //$p_don_id = $reqprep2->fetch();
-
-
                                             if($_POST["don_status"] == 'OK'){
 
                                                 (new \Manager\Receipt($this->bdd))->add(["don_id" => htmlspecialchars($_GET["don_id"]),"type"=>"donation_asso"]);
