@@ -268,7 +268,10 @@ class Member
 
             $_SESSION["cli_id"] = $id_client;
 
-            return $id_client;
+
+            header("Location: /www/Kalaweit/member/get?cli_id=".$id_client);
+
+            //return $id_client;
 
         }
 
@@ -303,19 +306,29 @@ class Member
         $reqprep = $this->bdd->prepare("DELETE FROM crm_client WHERE cli_id = :cli_id");
 
         $prepare = [
-            ":cli_id" =>  $_SESSION["cli_id"]
+            ":cli_id" =>  $_GET["cli_id"]
         ];
+
+        $prepare2 = [
+            ":cli_id" =>  $_GET["cli_id"]
+        ];
+
+
 
         $check = $checkprep->execute($prepare);
 
         $count = $checkprep->fetch(\PDO::FETCH_NUM);
 
-
         if($count[0] == 0) {
+
 
             $checkdataprep->execute($prepare);
 
-            $reqprep->execute($prepare);
+            //var_dump($checkdataprep->errorInfo());
+
+            $reqprep->execute($prepare2);
+
+            //var_dump($reqprep->errorInfo());
 
             $_SESSION["info"] = 'L\'utilisateur a bien été supprimé.';
 

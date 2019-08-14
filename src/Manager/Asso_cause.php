@@ -400,6 +400,7 @@ class Asso_cause
 
                         $insert_media = [];
 
+                
                         foreach ($_POST as $key => $value) {
 
                             $key_loop = substr($key,0,4);
@@ -456,6 +457,8 @@ class Asso_cause
 
                                 $key_media = substr($key,4,1);
 
+
+
                                     $reqprep_media = $this->bdd->prepare(
 
                                     "DELETE FROM
@@ -465,8 +468,6 @@ class Asso_cause
                                     WHERE
 
                                     cau_id = :cau_id
-
-                                    WHERE caum_type != 'PHOTO'
 
                                     "
 
@@ -479,7 +480,7 @@ class Asso_cause
                                 $reqprep_media->execute($prepare_media);
 
 
-                                $insert_media_loop = ["$key" => htmlspecialchars($value)];
+                                $insert_media_loop = ["$key" => $value];
 
                                 $insert_media = array_merge($insert_media,$insert_media_loop);
 

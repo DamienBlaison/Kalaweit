@@ -19,6 +19,8 @@ function send_mail($p_to,$p_subject,$p_body){
 
     //Create a new PHPMailer instance
     $mail = new PHPMailer;
+
+    $mail->CharSet = "UTF-8";
     //Tell PHPMailer to use SMTP
     $mail->isSMTP();
     //Enable SMTP debugging

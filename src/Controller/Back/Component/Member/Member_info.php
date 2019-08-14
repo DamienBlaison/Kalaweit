@@ -32,12 +32,13 @@ class Member_info
         $url = explode('/',$_SERVER['REQUEST_URI']);
 
         if ($url[4]=='add'){
-                    $desc_member    = $memberM->add($member);
+                    $desc_member = $memberM->add($member);
         } else {
                     $desc_member    = $memberM->get($member,$_GET['cli_id']);
                     $paypal_id ='test';
                     $hello_asso_id ='test';
         };
+
 
         /* initialisation des compsants HTML */
 

@@ -10,6 +10,11 @@
 
             function render(){
 
+                include( __DIR__ .'/../../../config/config.php');
+
+                $server = $config["host"]["host"];
+                $host = $config["Connexion"][$server]["site"];
+
                 if(isset($_POST['login'])){
 
                     $bdd = (new \Manager\Connexion())->getBdd();
@@ -19,7 +24,7 @@
                     if(isset($check['cld_valc'])){
 
                     $p_to = htmlspecialchars($_POST["login"]);
-                    $p_subject = 'Reintialisation du mot de passe';
+                    $p_subject = 'Reinitialisation du mot de passe';
                     $token = md5(uniqid());
 
                     (new \Manager\Sso_token(htmlspecialchars($_POST["login"]),$token,$bdd))->add();
@@ -34,7 +39,7 @@
                     </p>
                     Merci de cliquer sur le lien ci dessous :
                     </p>
-                    <p><a href='/www/Maj_password?token=$token'>/www/Maj_password?token=$token</a>
+                    <p><a href='http://".$host."/www/Maj_password?token=$token'>http://".$host."/www/Maj_password?token=$token</a>
                     </p>
                     <br>
                     <p>Ce lien sera valable 24 heures.</p>
@@ -45,7 +50,7 @@
 
                     ";
 
-                    require_once( __DIR__ .'/../../../Manager/Send_mail.php');
+                    require_once( __DIR__ .'/../../Manager/Send_mail.php');
 
                     send_mail($p_to,$p_subject,$p_body);
 

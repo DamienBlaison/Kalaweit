@@ -483,6 +483,9 @@ class Ajax_get
 
     function upload_photo1(){
 
+
+    $content = file_get_contents("php://input", 'r+');
+
     $recup = $_POST["image"]; // image encodée en base 64;
 
     $image_array_1 = explode(";" , $recup);
@@ -501,13 +504,14 @@ class Ajax_get
 
     $reqprep_delete = $bdd->prepare( "DELETE FROM asso_cause_media WHERE cau_id = :cau_id and caum_code = 'PHOTO1'");
 
+    $prepare_delete = [
+        ":cau_id" => $_GET["cau_id"],
+    ];
+    $reqprep_delete->execute($prepare_delete);
+
     $reqprep_insert = $bdd->prepare(
         "INSERT INTO asso_cause_media (cau_id,caum_code,caum_type,caum_file,caum_lang)
         VALUES (:cau_id,'PHOTO1','PHOTO',:caum_file,'__')");
-
-        $prepare_delete = [
-            ":cau_id" => $_GET["cau_id"],
-        ];
 
         $caum_file = explode('/',$target_file);
 
@@ -515,8 +519,6 @@ class Ajax_get
             ":cau_id" => $_GET["cau_id"],
             ":caum_file"=> array_pop($caum_file)
         ];
-
-        $reqprep_delete->execute($prepare_delete);
 
         $reqprep_insert->execute($prepare_insert);
 
