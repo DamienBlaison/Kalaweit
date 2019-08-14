@@ -31,13 +31,18 @@ foreach ($causes_infos as $key => $value) {
 
 foreach ($ids as $key => $value) {
 
+    if($key % 50 == 0){
+
     $mnt = 25;
     $key_status = array_rand($status);
     (new \Manager\Asso_adhesion($bdd))->add_random($value,$mnt,$status[$key_status],$year);
 
+    }
+
 }
 
-for ($i=0; $i < 250; $i++) {
+
+for ($i=0; $i < 100; $i++) {
 
     $key_id = array_rand($ids);
     $key_cause = array_rand($causes);
@@ -50,7 +55,7 @@ for ($i=0; $i < 250; $i++) {
 
 
 
-for ($i=0; $i < 250; $i++) {
+for ($i=0; $i < 100; $i++) {
 
 $key_id = array_rand($ids);
 $key_status = array_rand($status);
@@ -60,7 +65,7 @@ $mnt = rand(0,150);
 
 }
 
-for ($i=0; $i < 250; $i++) {
+for ($i=0; $i < 100; $i++) {
 
 $key_id = array_rand($ids);
 $key_status = array_rand($status);
@@ -70,7 +75,7 @@ $mnt = rand(0,150);
 
 }
 
-for ($i=0; $i < 250; $i++) {
+for ($i=0; $i < 100; $i++) {
 
 $key_id = array_rand($ids);
 $key_status = array_rand($status);
@@ -79,5 +84,3 @@ $mnt = rand(0,150);
 (new \Manager\Asso_donation($bdd))->add_random($ids[$key_id],704,$mnt,$status[$key_status],$year);
 
 }
-
-*/

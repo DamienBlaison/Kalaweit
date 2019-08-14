@@ -5,6 +5,7 @@ include ('./../vendor/autoload.php');
 ini_set('date.timezone', 'Europe/Berlin');
 
 
+
 /**
  * Le fichier php qui permet d'intégrer toutes les sources dont l'autoloader
  * Le but de l'autoloader est de ne plus avoir besoin de faire de include, require

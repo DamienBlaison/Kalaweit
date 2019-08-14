@@ -351,9 +351,10 @@ class Asso_adhesion
                                 $reqprep2->execute($prepare2);
                                 $p_adhesion_id = $reqprep2->fetch();
 
+                                
                                 if($_POST["adhesion_status"] == 'OK'){
 
-                                    (new \Manager\Receipt($this->bdd))->add(["adhesion_id" =>$p_adhesion_id[0],"type"=>"adhesion"]);
+                                    (new \Manager\Receipt($this->bdd))->add(["adhesion_id" =>htmlspecialchars($_GET["adhesion_id"]),"type"=>"adhesion"]);
                                 }
 
                                 switch ($_GET["from"]) {
@@ -645,7 +646,11 @@ class Asso_adhesion
                                     $min_stamp = mktime(0,0,0,1,1,$year);
                                     $max_stamp = $min_stamp + (1546214400 - 1515715200);
 
+
                                     $date = rand($min_stamp,$max_stamp);
+
+                                    $date_insert = date('Y-m-d G:i:s',$date);
+
 
                                     $prepare = [
 
@@ -654,7 +659,7 @@ class Asso_adhesion
                                         ":adhesion_mnt"=> $mnt,
                                         ":adhesion_status"=> $status,
                                         ":ptyp_id"=> 1,
-                                        ":adhesion_ts" => date('Y-m-d G:i:s',$date)//, mktime(0, 0, 0, $_timestamp["M"], $_timestamp["D"], $_timestamp["Y"]))
+                                        ":adhesion_ts" => $date_insert//, mktime(0, 0, 0, $_timestamp["M"], $_timestamp["D"], $_timestamp["Y"]))
                                     ];
 
                                     $insert = $reqprep->execute($prepare);

@@ -166,7 +166,7 @@ $user = (new \Manager\Users($bdd))->get_id_from_Login($_SESSION['user_login']);
                                 </ul>
                             </li>
                         </ul>
-                    </li>
+                    </li> ZZ
 
                     <li class=" treeview" style="border-left:3px solid #3c8dbc; ">
                         <a href="#"><i class="fa  fa-euro"></i> <span>Paiements et reçus</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>

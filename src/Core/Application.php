@@ -63,20 +63,20 @@ class Application
                         switch ($parts[2]) {
 
                             case 'log_in':
-                                if (method_exists($obj, 'log_in')){ echo $obj->log_in();};
+                            if (method_exists($obj, 'log_in')){ echo $obj->log_in();};
                             break;
 
                             case 'log_out':
-                                if (method_exists($obj, 'log_out')){ echo $obj->log_out();};
+                            if (method_exists($obj, 'log_out')){ echo $obj->log_out();};
                             break;
 
                             case 'forgotten_pwd':
                                 if (method_exists($obj, 'forgotten_pwd')){ echo $obj->forgotten_pwd();};
-                            break;
+                                break;
 
-                            case 'maj_pwd':
+                                case 'maj_pwd':
                                 if (method_exists($obj, 'maj_pwd')){ echo $obj->maj_pwd();};
-                            break;
+                                break;
                                 case 'Link_dead':
                                 if (method_exists($obj, 'Link_dead')){
                                     echo $obj->render();
@@ -266,6 +266,30 @@ class Application
                             }
                             break;
 
+                            case 'Download_project':
+
+                            $filename = 'Kalaweit.zip';
+                            $filepath = __DIR__ .'/../../Ged/';
+
+
+                            if (file_exists($filepath.$filename)) {
+
+                                header("Pragma: public");
+                                header("Expires: 0");
+                                header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+                                header("Cache-Control: public");
+                                header("Content-Description: File Transfer");
+                                header("Content-type: application/octet-stream");
+                                header("Content-Disposition: attachment; filename=\"".$filename."\"");
+                                header("Content-Transfer-Encoding: binary");
+                                header("Content-Length: ".filesize($filepath.$filename));
+                                ob_end_flush();
+                                @readfile($filepath.$filename);
+
+                                exit;
+                            }
+                            break;
+
                             case 'Export_Excel':
 
                             $file = __DIR__ .'/../../Ged/Export_Excel/'.$parts[1];
@@ -307,7 +331,7 @@ class Application
                                 if (method_exists($obj, 'import_excel_ajax')){
                                     echo $obj->import_excel_ajax();;
                                 };
-                                    // code...
+                                // code...
                                 break;
 
                                 case 'integration_bdd':
@@ -315,11 +339,11 @@ class Application
                                 if (method_exists($obj, 'integration_bdd')){
                                     echo $obj->integration_bdd();;
                                 };
-                                    // code...
+                                // code...
                                 break;
 
                                 default:
-                                    header("Location:/www/Import_Excel/import_excel");// code...
+                                header("Location:/www/Import_Excel/import_excel");// code...
                                 break;
                             }
 
@@ -331,10 +355,18 @@ class Application
                             {
                                 $obj = new $class();
                                 switch ($parts[0]) {
+
+                                    case 'Download_project_page':
+                                    if (method_exists($obj, 'render')){
+                                        echo $obj->render();
+                                    };
+                                    break;
+
                                     case 'Connexion':
                                     if (method_exists($obj, 'render')){
                                         echo $obj->render();
                                     };
+                                    break;
 
                                     case 'Deconnexion':
                                     if (method_exists($obj, 'destroy')){
