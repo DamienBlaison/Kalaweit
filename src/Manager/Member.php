@@ -405,7 +405,7 @@ class Member
 
                 $reqprep_data = $this->bdd->prepare("UPDATE crm_client_data SET cld_valc = :cld_valc WHERE cli_id = :cli_id AND clitd_id = :clitd_id");
 
-                $prepare_data = [":cld_valc" =>$value["cld_valc"], ":cli_id" => $_SESSION["cli_id"], "clitd_id" => $value["clitd_id"] ] ;
+                $prepare_data = [":cld_valc" =>$value["cld_valc"], ":cli_id" => $_GET["cli_id"], "clitd_id" => $value["clitd_id"] ] ;
 
                 $reqprep_data;
                 $reqprep_data->execute($prepare_data);
