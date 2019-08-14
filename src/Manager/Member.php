@@ -369,7 +369,7 @@ class Member
 
         $set = rtrim($set,", ");
 
-        $prepare =  array_merge($array_param_post["array_param_post_cli"]["p_prepare_cli"],[":cli_id"=> $_GET['cli_id']]);
+        $prepare =  array_merge($array_param_post["array_param_post_cli"]["p_prepare_cli"],[":cli_id"=> $_SESSION['cli_id']]);
 
         $reqprep = $this->bdd->prepare("UPDATE crm_client SET $set WHERE cli_id = :cli_id");
 
