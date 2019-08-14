@@ -22,11 +22,11 @@ class Download_project_page {
             <hr class="my-4">
 
             <form class="row" action="" method="post">
-                <div class="col-md-10">
+                <div class="col-sm-12 col-md-8">
                     <input type="password" name="password_download_project">
                 </div>
-                <div class="col-md-2">
-                    <button type="submit" class="btn btn-success"><span class="fa fa-download"></span>
+                <div class="col-sm-12 col-md-4">
+                    <button type="submit" class="btn btn-success col-12"><span class="fa fa-download"></span>
                       Télecharger
                     </button>
                 </div>

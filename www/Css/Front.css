@@ -382,14 +382,7 @@ nav .pagination{
     padding-right:15px;
 }
 
-.download_project_homepage{
-    width: 100%;
-    background-image:
-    url("/../Img/Front/homepage_background.jpg");
-    background-repeat: no-repeat;
-    background-size: 200% auto;
-    background-color: white;
-}
+
 .download_project_jumbo h1{
     text-decoration: underline;
     font-size: 3rem;
@@ -403,14 +396,39 @@ nav .pagination{
     padding:10px;
 }
 
-@media (min-width:426px){
+@media (min-width:768px){
     #download_container{
         margin-top: 250px;
     }
+
+    .download_project_homepage{
+        width: 100%;
+        background-image:
+        url("/../Img/Front/homepage_background.jpg");
+        background-repeat: no-repeat;
+        background-size: 200% auto;
+        background-color: white;
+    }
+
+
 }
 
-@media (max-width:425px){
+@media (max-width:767px){
     #download_container{
         margin-top: 70px;
+    }
+
+    .download_project_homepage{
+        background-color: #e9ecef;
+
+    }
+
+    .download_project_jumbo h1{
+        text-decoration: underline;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    .lead{
+        font-size: 1rem;
     }
 }

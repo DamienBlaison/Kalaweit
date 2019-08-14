@@ -8,6 +8,8 @@ class Table_filter
 
     public function render($fields,$data){
 
+        $bdd = (new \Manager\Connexion())->getBdd();
+
         $url  = explode('?',$_SERVER['REQUEST_URI']);
 
         $url_current = explode('/',$url["0"]);
@@ -224,7 +226,6 @@ class Table_filter
                             } else { $print_access = true ;}
                         }
 
-
                     }
 
                     $table .= '<td style = "width:140px; text-align:center;">';
@@ -279,9 +280,57 @@ class Table_filter
                             }
                         } else {
 
-                            $table .=    '<a style="margin-right:5px;" href="'.$update.$d_v[0].'" class="btn btn-primary" id="update_'.$d_v[0].'"><i class="fa fa-edit"></i></a>';
+                            switch ($url[3]) {
 
-                            $table .=    '<a style="margin-right:5px;" href="'.$delete.$d_v[0].'" class="btn btn-danger" id="delete_'.$d_v[0].'" onclick ="return confirm(\'Etes vous sur de vouloir supprimer cet enregistrement? \')"><i class="fa  fa-trash"></i></a>';
+                                case 'asso_cause':
+
+                                if ((new\Manager\Asso_cause($bdd))->check_delete($d_v[0]) != 'ok'){
+
+                                    $table .=    '<a style="margin-right:5px;" href="'.$update.$d_v[0].'" class="btn btn-primary" id="update_'.$d_v[0].'"><i class="fa fa-edit"></i></a>';
+
+                                    $table .=    '<a style="margin-right:5px;" href="" class="btn btn-default" disabled class="btn btn-danger" id="delete_'.$d_v[0].'" ><i class="fa  fa-trash"></i></a>';
+
+                                }
+
+                                else {
+
+                                $table .=    '<a style="margin-right:5px;" href="'.$update.$d_v[0].'" class="btn btn-primary" id="update_'.$d_v[0].'"><i class="fa fa-edit"></i></a>';
+
+                                $table .=    '<a style="margin-right:5px;" href="'.$delete.$d_v[0].'" class="btn btn-danger" id="delete_'.$d_v[0].'" onclick ="return confirm(\'Etes vous sur de vouloir supprimer cet enregistrement? \')"><i class="fa  fa-trash"></i></a>';
+
+                                }
+
+                                break;
+
+                                case 'member':
+
+                                if ((new\Manager\Member($bdd))->check_delete($d_v[0]) != 'ok'){
+
+                                    $table .=    '<a style="margin-right:5px;" href="'.$update.$d_v[0].'" class="btn btn-primary" id="update_'.$d_v[0].'"><i class="fa fa-edit"></i></a>';
+
+                                    $table .=    '<a style="margin-right:5px;" href="" class="btn btn-default" disabled class="btn btn-danger" id="delete_'.$d_v[0].'" ><i class="fa  fa-trash"></i></a>';
+
+                                }
+
+                                else {
+
+                                $table .=    '<a style="margin-right:5px;" href="'.$update.$d_v[0].'" class="btn btn-primary" id="update_'.$d_v[0].'"><i class="fa fa-edit"></i></a>';
+
+                                $table .=    '<a style="margin-right:5px;" href="'.$delete.$d_v[0].'" class="btn btn-danger" id="delete_'.$d_v[0].'" onclick ="return confirm(\'Etes vous sur de vouloir supprimer cet enregistrement? \')"><i class="fa  fa-trash"></i></a>';
+
+                                }
+
+                                break;
+
+                                default:
+                                
+                                $table .=    '<a style="margin-right:5px;" href="'.$update.$d_v[0].'" class="btn btn-primary" id="update_'.$d_v[0].'"><i class="fa fa-edit"></i></a>';
+
+                                $table .=    '<a style="margin-right:5px;" href="'.$delete.$d_v[0].'" class="btn btn-danger" id="delete_'.$d_v[0].'" onclick ="return confirm(\'Etes vous sur de vouloir supprimer cet enregistrement? \')"><i class="fa  fa-trash"></i></a>';
+
+                                    break;
+                            }
+
 
                         }
 

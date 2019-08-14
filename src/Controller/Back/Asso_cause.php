@@ -57,6 +57,21 @@ class Asso_cause
 
     }
 
+    function delete()
+
+    {
+
+        /* instanciation de la connexion a la bdd */
+
+        $bdd = new \Manager\Connexion();
+        $bdd = $bdd->getBdd();
+
+        /* lancement du traitemetn de suppression */
+
+            (new \Manager\Asso_cause($bdd))->delete($_GET['cau_id']);
+
+    }
+
 
 }
 

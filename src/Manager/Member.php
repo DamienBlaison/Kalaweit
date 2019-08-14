@@ -274,6 +274,26 @@ class Member
 
     }
 
+    function check_delete($cli_id){
+
+        $reqprep1 = $this->bdd->prepare("SELECT * FROM asso_donation where cli_id = :cli_id ");
+        $prepare1 =[":cli_id" => $cli_id];
+        $reqprep1->execute($prepare1);
+        $result1 = $reqprep1->rowcount();
+
+        $reqprep2 = $this->bdd->prepare("SELECT * FROM asso_adhesion where cli_id = :cli_id ");
+        $prepare2 =[":cli_id" => $cli_id];
+        $reqprep2->execute($prepare1);
+        $result2 = $reqprep2->rowcount();
+
+
+
+        if ( ($result1 + $result2) == 0){ $return = "ok";} else { $return = "ko";};
+
+        return $return ;
+
+    }
+
     function delete(){
 
         $checkprep = $this->bdd->prepare("SELECT COUNT(*) FROM asso_donation WHERE cli_id = :cli_id");

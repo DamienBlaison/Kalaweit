@@ -1,7 +1,6 @@
 let uri = window.location.pathname.split('/');
 
-go_previous();
-go_next();
+
 
 function go_previous(){
 
@@ -16,7 +15,12 @@ function go_previous(){
 
 function go_next(){
 
-    if (uri[3] >= (document.getElementById('nb_page').textContent)){
+    var checkNext = parseInt(document.getElementById('nb_page').textContent);
+
+    console.log(uri[3]);
+    console.log(checkNext);
+
+    if (uri[3] >= (checkNext)){
 
         document.getElementById("next").firstChild.setAttribute('href', '');
 
@@ -26,3 +30,6 @@ function go_next(){
 
     };
 };
+
+go_previous();
+go_next();

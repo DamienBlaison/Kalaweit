@@ -689,4 +689,48 @@ class Asso_cause
                                         return $data;
                                     }
 
+                                    function check_delete($cau_id){
+
+                                        $reqprep1 = $this->bdd->prepare("SELECT * FROM asso_donation where cau_id = :cau_id ");
+                                        $prepare1 =[":cau_id" => $cau_id];
+                                        $reqprep1->execute($prepare1);
+                                        $result = $reqprep1->rowcount();
+
+                                        if ($result == 0){ $return = "ok";} else { $return = "ko";};
+
+                                        return $return ;
+
+                                    }
+
+                                    function delete(){
+
+                                        $check = $this->check_delete($_GET["cau_id"]);
+
+                                        if($check == "ok"){
+
+                                        $reqprep1 = $this->bdd->prepare("DELETE FROM asso_cause_media where cau_id = :cau_id ");
+                                        $prepare1 =[":cau_id" => $_GET["cau_id"]];
+                                        $reqprep1->execute($prepare1);
+
+                                        var_dump($reqprep1->errorInfo());
+
+                                        $reqprep2 = $this->bdd->prepare("DELETE FROM asso_cause_data where cau_id = :cau_id ");
+                                        $prepare2 =[":cau_id" => $_GET["cau_id"]];
+                                        $reqprep2->execute($prepare2);
+
+                                        var_dump($reqprep2->errorInfo());
+
+                                        $reqprep = $this->bdd->prepare("DELETE FROM asso_cause WHERE cau_id = :cau_id");
+                                        $prepare =[":cau_id" => $_GET["cau_id"]];
+                                        $reqprep->execute($prepare);
+
+                                        var_dump($reqprep->errorInfo());
+
+
+                                        header("Location: ".$_SERVER['HTTP_REFERER']);
+
+                                    } else {header("Location: ".$_SERVER['HTTP_REFERER']); }
+
+                                    }
+
                                 }

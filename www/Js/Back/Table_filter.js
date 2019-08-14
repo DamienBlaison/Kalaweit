@@ -57,7 +57,7 @@ let target = uri[3];
         console.log(document.getElementById('nb_page').textContent);
         console.log(uri[5]);
 
-        if (uri[5] >= (document.getElementById('nb_page').textContent)){
+        if (uri[5] >= (parseInt(document.getElementById('nb_page').textContent))){
 
             document.getElementById("next_member").firstChild.setAttribute('href', '');
 
