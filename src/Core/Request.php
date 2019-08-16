@@ -3,7 +3,7 @@ namespace Core;
 
 /**
  * Classe de gestion de la requête
- * @author jeromeklam
+ * @author blaison damien
  */
 class Request
 {

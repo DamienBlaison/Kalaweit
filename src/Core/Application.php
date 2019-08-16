@@ -2,7 +2,7 @@
 namespace Core;
 /**
 * Gestion de l'application
-* @author jeromeklam
+* @author blaison damien
 */
 class Application
 {

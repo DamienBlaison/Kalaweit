@@ -4,7 +4,7 @@ namespace Manager;
 /**
  * Ile manager
  *
- * @author jeromeklam
+ * @author blaison damien
  */
 class Asso_payment_type
 {

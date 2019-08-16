@@ -3,7 +3,7 @@ namespace Model;
 
 /**
  *
- * @author jeromeklam
+ * @author blaison damien
  *
  */
 class Asso_cause_media

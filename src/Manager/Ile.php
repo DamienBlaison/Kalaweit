@@ -3,7 +3,7 @@
 /**
  * Ile manager
  *
- * @author jeromeklam
+ * @author blaison damien
  */
 class Ile
 {

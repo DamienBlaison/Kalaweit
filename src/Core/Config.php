@@ -3,7 +3,7 @@ namespace Core;
 
 /**
  *
- * @author jeromeklam
+ * @author blaison damien
  *
  */
 class Config

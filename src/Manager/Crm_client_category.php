@@ -4,7 +4,7 @@ namespace Manager;
 /**
  * Ile manager
  *
- * @author jeromeklam
+ * @author blaison damien
  */
 class Crm_client_category
 {
