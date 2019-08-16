@@ -56,6 +56,8 @@ class My_account
 
                             <br>
 
+                            <p>Les attestations et reçus fiscaux seront disponibles à cet endroit après vérification du paiement.</p>
+
                             <div id="histo_member" class="col-md-12">
 
                                 <h3>Reçu fiscaux</h3>
