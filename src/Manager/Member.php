@@ -511,7 +511,7 @@ class Member
     function get_mail(){
 
         $reqprep = $this->bdd->prepare("SELECT cld_valc from crm_client_data WHERE cli_id = :cli_id and clitd_id = 3 ");
-        $prepare =[ ":cli_id" =>  $_SESSION["cli_id"]];
+        $prepare =[ ":cli_id" =>  $_GET["cli_id"]];
         $reqprep->execute($prepare);
         $return = $reqprep->fetch();
         return $return;
