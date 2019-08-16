@@ -54,8 +54,6 @@ class My_account
 
                             <h2 id="history" class="col-md-12">Historiques</h2>
 
-                            <br>
-
                             <p>Les attestations et reçus fiscaux seront mis à votre disposition à cet endroit après vérification du paiement</p>
 
                             <div id="histo_member" class="col-md-12">
