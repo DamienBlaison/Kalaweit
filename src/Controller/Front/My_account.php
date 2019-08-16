@@ -56,10 +56,6 @@
 
         $print = '/Receipt/';
 
-        echo'<pre>';
-        var_dump($info_donation);
-        echo'</pre>';
-
         $table = [
 
             "table_receipt_annual" => (new \Controller\Front\htmlElement\Table($info_receipt_annual,'receipt_table',$print))->render(),
