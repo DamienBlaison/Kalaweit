@@ -373,8 +373,6 @@ class Member
 
         $reqprep = $this->bdd->prepare("UPDATE crm_client SET $set WHERE cli_id = :cli_id");
 
-
-
         $reqprep->execute($prepare);
 
         foreach ($array_param_post["array_param_post_clid"] as $key => $value) {
